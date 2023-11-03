@@ -26,8 +26,8 @@ export default function Navbar() {
         <h1 className="text-center md:text-left text-lg ">Exclusive</h1>
         <div className="flex gap-7 justify-center md:justify-start">
           {navLinks.map((navLink, index) => (
-            <Link href={navLink.path} key={index} className="link relative">
-              {navLink.text}
+            <Link href={navLink.link} key={index} className="link relative">
+              {navLink.label}
             </Link>
           ))}
         </div>
