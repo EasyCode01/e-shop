@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="flex flex-col justify-center items-center border-tiny">
+    <nav className="flex flex-col justify-center items-center border-bottom">
       <header className="flex justify-end bg-black text-white  p-1  w-full ">
         <div className="w-4/5 flex justify-evenly">
           <small className="">
