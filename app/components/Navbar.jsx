@@ -1,6 +1,7 @@
 import { navLinks } from "@/app/constant/data";
 import {
   FavoriteBorder,
+  MenuOutlined,
   Search,
   ShoppingCartOutlined,
 } from "@mui/icons-material";
@@ -23,8 +24,10 @@ export default function Navbar() {
       </header>
 
       <div className="w-full max-w-[90%] 2xl:max-w-[1300px] flex justify-between py-6 items-center md:flex-row">
-        <h1 className="text-center md:text-left text-lg ">Exclusive</h1>
-        <div className="flex gap-7 justify-center md:justify-start">
+        <h1 className="text-center md:text-left text-xl font-extrabold mr-2 ">
+          Exclusive
+        </h1>
+        <div className="gap-7 justify-center md:justify-start hidden md:flex">
           {navLinks.map((navLink, index) => (
             <Link href={navLink.link} key={index} className="link relative">
               {navLink.label}
@@ -32,14 +35,17 @@ export default function Navbar() {
           ))}
         </div>
         <div className="flex justify-center md:justify-end space-x-3 mt-3 md:mt-0">
+          <div className="flex items-center md:hidden ">
+            <MenuOutlined />
+          </div>
           <form
             action=""
-            className="flex items-center bg-gray px-2 py-1 text-sm"
+            className="flex items-center bg-gray px-2 py-1 text-sm "
           >
             <input
               type="search"
               placeholder="What are you looking for?"
-              className="outline-0 bg-transparent w-auto"
+              className="outline-0 bg-transparent w-auto hidden md:flex"
             />
             <Search className="cursor-pointer" />
           </form>

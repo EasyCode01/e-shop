@@ -20,9 +20,11 @@ export default function BestSelling() {
 
       <div className="flex justify-between ">
         <div className="flex items-center gap-10">
-          <h1 className="text-3xl font-bold">Best Selling Products</h1>
+          <h1 className="md:text-2xl text-xl font-bold">
+            Best Selling Products
+          </h1>
         </div>
-        <button className="btn-primary">View All</button>
+        <button className="btn-primary ">View All</button>
       </div>
 
       <div className="pb-10">

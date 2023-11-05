@@ -5,9 +5,9 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <div className="flex py-6 gap-10">
+    <div className="flex gap-10 md:bg-transparent  bg-black">
       <Categories />
-      <div className="bg-black text-white w-3/4 ">
+      <div className="bg-black text-white w-3/4 my-6">
         {hero.map((product, index) => (
           <div key={index} className="flex justify-around items-center">
             <div className="relative flex flex-col w-1/2 p-10 gap-8 justify-center items-start">
