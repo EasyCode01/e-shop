@@ -1,15 +1,18 @@
 import { navLinks } from "@/app/constant/data";
 import {
   FavoriteBorder,
-  MenuOutlined,
   Search,
   ShoppingCartOutlined,
 } from "@mui/icons-material";
 import Link from "next/link";
+import MenuButton from "./MenuButton";
+import NavLinks from "./NavLinks";
+import SideMenu from "./SideMenu";
 
 export default function Navbar() {
   return (
     <nav className="flex flex-col justify-center items-center border-bottom">
+      <SideMenu />
       <header className="flex justify-end bg-black text-white  p-1  w-full ">
         <div className="w-4/5 flex justify-evenly">
           <small className="">
@@ -28,16 +31,10 @@ export default function Navbar() {
           Exclusive
         </h1>
         <div className="gap-7 justify-center md:justify-start hidden md:flex">
-          {navLinks.map((navLink, index) => (
-            <Link href={navLink.link} key={index} className="link relative">
-              {navLink.label}
-            </Link>
-          ))}
+          <NavLinks />
         </div>
         <div className="flex justify-center md:justify-end space-x-3 mt-3 md:mt-0">
-          <div className="flex items-center md:hidden ">
-            <MenuOutlined />
-          </div>
+          <MenuButton />
           <form
             action=""
             className="flex items-center bg-gray px-2 py-1 text-sm "

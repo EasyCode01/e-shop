@@ -6,7 +6,9 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <div className="flex gap-10 md:bg-transparent  bg-black">
-      <Categories />
+      <ul className="w-1/5 md:w-1/5 lg:w-1/4 border-right hidden md:block my-6">
+        <Categories />
+      </ul>
       <div className="bg-black text-white w-3/4 my-6">
         {hero.map((product, index) => (
           <div key={index} className="flex justify-around items-center">

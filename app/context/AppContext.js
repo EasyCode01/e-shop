@@ -7,6 +7,13 @@ export const AppContext = createContext();
 export const ContextProvider = ({ children }) => {
   const [products, setProducts] = useState(productsData);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
+  console.log(showSidebar);
 
   const updateProduct = (categoryName, productName, updatedProductData) => {
     setProducts((prevProducts) => {
@@ -36,7 +43,14 @@ export const ContextProvider = ({ children }) => {
 
   return (
     <AppContext.Provider
-      value={{ products, updateProduct, selectedCategory, selectCategory }}
+      value={{
+        products,
+        updateProduct,
+        selectedCategory,
+        selectCategory,
+        toggleSidebar,
+        showSidebar,
+      }}
     >
       {children}
     </AppContext.Provider>
