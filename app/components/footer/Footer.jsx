@@ -3,7 +3,7 @@ import FooterIcon from "./FooterIcon";
 
 export default function Footer() {
   return (
-    <section className="padding-y bg-dark">
+    <section className="padding-y pb-4 bg-dark">
       <div className="container">
         <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-7">
           <div>

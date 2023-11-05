@@ -28,7 +28,7 @@ export default function ExploreProducts() {
                 <ProductCard
                   key={product.id}
                   product={product}
-                  type="explore products"
+                  type="Explore products"
                 />
               ))}
           </div>

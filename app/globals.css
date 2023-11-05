@@ -2,13 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+img {
+  width: auto;
+}
+
 @layer utilities {
   .container {
     @apply max-w-[90%] 2xl:max-w-[1300px] mx-auto;
   }
 
   .btn-primary {
-    @apply cursor-pointer bg-red text-white rounded-md px-5 py-2 text-sm  capitalize;
+    @apply cursor-pointer bg-red text-white rounded-md px-5 py-3 text-sm  capitalize;
   }
 
   .btn-dark {
@@ -16,10 +20,14 @@
   }
 
   .btn-lemon {
-    @apply cursor-pointer bg-lemon text-white rounded-md px-5 py-2 text-sm  capitalize;
+    @apply cursor-pointer bg-lemon text-white rounded-md px-5 py-3 text-sm  capitalize;
   }
 
   .padding-y {
     @apply py-16;
+  }
+
+  .product-card:hover .product-btn {
+    display: block;
   }
 }
