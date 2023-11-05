@@ -19,6 +19,9 @@ module.exports = {
         "hover-button": "#A0bcE0",
         "light-cyan": "#CBE4E8",
       },
+      boxShadow: {
+        "3xl": "-10px -8px 15px rgba(0, 0, 0, 0.2)",
+      },
     },
   },
   plugins: [],

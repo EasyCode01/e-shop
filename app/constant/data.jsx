@@ -1,4 +1,44 @@
-export const products = [
+export const navLinks = [
+  {
+    label: "Home",
+    link: "/home",
+  },
+  {
+    label: "Contact",
+    link: "/contact",
+  },
+  {
+    label: "About",
+    link: "/about",
+  },
+  {
+    label: "SignUp",
+    link: "/signup",
+  },
+];
+
+export const hero = [
+  {
+    image: "images/hero-frame-1.png",
+    text: "Up to 10%  off Voucher",
+    name: "iPhone 14 series",
+    tinyImage: "/images/apple-gray-logo.png",
+  },
+  {
+    image: "images/boomblox.png",
+    text: "Up to 20%  off Voucher",
+    name: "BoomBlox series",
+    tinyImage: "/images/boomblox.png",
+  },
+  {
+    image: "images/ps5-play-station.png",
+    text: "Up to 15%  off Voucher",
+    name: "Play Station 5",
+    tinyImage: "/images/ps5-play-station.png",
+  },
+];
+export const productsData = [
+
   {
     id: 1,
     name: "Amazon Echo",
@@ -233,6 +273,7 @@ export const products = [
     discountPercentage: 0,
     newPrice: 39.99,
   },
+
   {
     id: 19,
     name: "Breed Dry Dog Food",
@@ -246,4 +287,5 @@ export const products = [
     discountPercentage: 0,
     newPrice: 39.99,
   },
+
 ];
