@@ -13,8 +13,6 @@ export const ContextProvider = ({ children }) => {
     setShowSidebar(!showSidebar);
   };
 
-  console.log(showSidebar);
-
   const updateProduct = (categoryName, productName, updatedProductData) => {
     setProducts((prevProducts) => {
       return prevProducts.map((category) => {

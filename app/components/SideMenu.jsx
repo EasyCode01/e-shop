@@ -1,13 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import { useAppContext } from "../context/AppContext";
-import NavLinks from "./NavLinks";
 import Categories from "./Categories";
 import {
   CategoryOutlined,
   CloseOutlined,
   MenuOutlined,
 } from "@mui/icons-material";
+import { navLinks } from "../constant/data";
+import Link from "next/link";
 
 export default function Sidebar() {
   const { showSidebar, toggleSidebar } = useAppContext();
@@ -45,7 +46,15 @@ export default function Sidebar() {
               </ul>
             ) : (
               <div className="flex flex-col gap-4">
-                <NavLinks />
+                {navLinks.map((navLink, index) => (
+                  <Link
+                    href={navLink.link}
+                    key={index}
+                    className="link relative pb-5 border-b border-deep-gray"
+                  >
+                    {navLink.label}
+                  </Link>
+                ))}
               </div>
             )}
           </div>

@@ -1,4 +1,3 @@
-import { navLinks } from "@/app/constant/data";
 import {
   FavoriteBorder,
   Search,
@@ -13,7 +12,7 @@ export default function Navbar() {
   return (
     <nav className="flex flex-col justify-center items-center border-bottom">
       <SideMenu />
-      <header className="flex justify-end bg-black text-white  p-1  w-full ">
+      <header className="flex justify-center md:justify-end bg-black text-white  p-1  w-full ">
         <div className="w-4/5 flex justify-evenly">
           <small className="">
             Summer Sale For All Swim Suits And Free Expres Delivery - OFF 50%!{" "}
@@ -33,8 +32,9 @@ export default function Navbar() {
         <div className="gap-7 justify-center md:justify-start hidden md:flex">
           <NavLinks />
         </div>
-        <div className="flex justify-center md:justify-end space-x-3 mt-3 md:mt-0">
-          <MenuButton />
+        <MenuButton />
+
+        <div className="hidden justify-center md:flex md:justify-end space-x-3 mt-3 md:mt-0">
           <form
             action=""
             className="flex items-center bg-gray px-2 py-1 text-sm "
