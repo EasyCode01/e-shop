@@ -1,8 +1,6 @@
-import { SearchOffOutlined } from "@mui/icons-material";
-import Image from "next/image";
-import { person } from "./constant/data";
-import Hero from "./components/hero/Hero";
-import FlashSales from "./components/flashsales/FlashSales";
+import Hero from "./sections/home/Hero";
+import FlashSales from "./sections/home/FlashSales";
+import BestSelling from "./sections/home/BestSelling";
 
 export default function Home() {
   return (
@@ -10,6 +8,7 @@ export default function Home() {
       <div className="container">
         <Hero />
         <FlashSales />
+        <BestSelling />
       </div>
     </main>
   );

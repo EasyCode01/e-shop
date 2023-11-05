@@ -1,17 +1,12 @@
-import { hero, productsData } from "@/app/constant/data";
+import Categories from "@/app/components/Categories";
+import { hero } from "@/app/constant/data";
 import { ArrowForwardOutlined } from "@mui/icons-material";
 import Link from "next/link";
 
 export default function Hero() {
   return (
     <div className="flex py-6 gap-10">
-      <ul className="w-1/5 md:w-1/5 lg:w-1/4 border-right">
-        {productsData.map((product, index) => (
-          <li key={index} className="cursor-pointer ">
-            {product.category}
-          </li>
-        ))}
-      </ul>
+      <Categories />
       <div className="bg-black text-white w-3/4 ">
         {hero.map((product, index) => (
           <div key={index} className="flex justify-around items-center">
