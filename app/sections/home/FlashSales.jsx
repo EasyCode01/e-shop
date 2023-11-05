@@ -5,12 +5,35 @@ import ProductCard from "@/app/components/ProductCard";
 import { useAppContext } from "@/app/context/AppContext";
 import Timer from "@/app/utils/Timer";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function FlashSales() {
+  const [displayedProducts, setDisplayedProducts] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const { products } = useAppContext();
 
-  const categroyType = products.filter(
-    (product) => product.categoryType === "Flash sales"
+  useEffect(() => {
+    const flashSaleProducts = products.filter(
+      (product) => product.categoryType === "Flash sales"
+    );
+    setDisplayedProducts(flashSaleProducts);
+  }, [products]);
+
+  const nextCard = () => {
+    if (currentIndex + 6 < displayedProducts.length) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
+  const prevCard = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  const displayProducts = displayedProducts.slice(
+    currentIndex,
+    currentIndex + 6
   );
 
   return (
@@ -26,12 +49,12 @@ export default function FlashSales() {
           <h1 className="md:text-2xl text-xl font-bold">Flash Sales</h1>
           <Timer />
         </div>
-        <Carousel />
+        <Carousel prevCard={prevCard} nextCard={nextCard} />
       </div>
 
       <div className="pb-10">
         <div className="overflow-x-hidden space-x-4 slider my-5">
-          <ProductCard products={categroyType} />
+          <ProductCard products={displayProducts} />
         </div>
 
         <div className="text-center">
