@@ -5,7 +5,7 @@ import BottomNavbar from "./components/BottomNavbar";
 
 export default function Home() {
   return (
-    <main className="h-[100vh]">
+    <main className="">
       <div className="container">
         <Hero />
         <FlashSales />

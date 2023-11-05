@@ -6,7 +6,7 @@ import { useAppContext } from "@/app/context/AppContext";
 export default function BestSelling() {
   const { products } = useAppContext();
 
-  const categroyType = products.filter(
+  const bestSellingProducts = products.filter(
     (product) => product.categoryType === "Best selling products"
   );
 
@@ -24,12 +24,18 @@ export default function BestSelling() {
             Best Selling Products
           </h1>
         </div>
-        <button className="btn-primary ">View All</button>
+        <button className="btn-primary">View All</button>
       </div>
 
-      <div className="pb-10">
-        <div className="overflow-x-hidden space-x-4 slider mb-5 mt-5">
-          <ProductCard products={categroyType} />
+      <div className="pb-10 mt-10 w-full">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          {bestSellingProducts?.map((product, index) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              type="Best selling products"
+            />
+          ))}
         </div>
       </div>
     </div>

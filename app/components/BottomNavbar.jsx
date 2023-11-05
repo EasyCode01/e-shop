@@ -6,7 +6,7 @@ import {
 
 const BottomNavbar = () => {
   return (
-    <div className="fixed bottom-0 left-0 w-full flex justify-around items-center p-3 bg-white shadow-md md:hidden">
+    <div className="fixed bottom-0 left-0 w-full flex justify-around items-center p-3 bg-white shadow-3xl md:hidden">
       <form action="" className="flex items-center bg-gray px-2 py-1 text-sm ">
         <input
           type="search"

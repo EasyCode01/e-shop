@@ -8,19 +8,19 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function FlashSales() {
-  const [displayedProducts, setDisplayedProducts] = useState([]);
+  const [flashSaleProducts, setFlashSalesProducts] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const { products } = useAppContext();
 
   useEffect(() => {
-    const flashSaleProducts = products.filter(
+    const filteredProducts = products.filter(
       (product) => product.categoryType === "Flash sales"
     );
-    setDisplayedProducts(flashSaleProducts);
+    setFlashSalesProducts(filteredProducts);
   }, [products]);
 
   const nextCard = () => {
-    if (currentIndex + 6 < displayedProducts.length) {
+    if (currentIndex + 6 < flashSaleProducts.length) {
       setCurrentIndex(currentIndex + 1);
     }
   };
@@ -31,7 +31,7 @@ export default function FlashSales() {
     }
   };
 
-  const displayProducts = displayedProducts.slice(
+  const displayProducts = flashSaleProducts.slice(
     currentIndex,
     currentIndex + 6
   );
@@ -54,7 +54,15 @@ export default function FlashSales() {
 
       <div className="pb-10">
         <div className="overflow-x-hidden space-x-4 slider my-5">
-          <ProductCard products={displayProducts} />
+          {flashSaleProducts
+            ?.slice(currentIndex, currentIndex + 6)
+            .map((product, index) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                type="Flash sales"
+              />
+            ))}
         </div>
 
         <div className="text-center">
