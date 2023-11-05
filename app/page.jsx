@@ -1,20 +1,16 @@
-import { SearchOffOutlined } from "@mui/icons-material";
-import Image from "next/image";
-import { person } from "./constant/data";
+import Hero from "./sections/home/Hero";
+import FlashSales from "./sections/home/FlashSales";
+import BestSelling from "./sections/home/BestSelling";
+import BottomNavbar from "./components/BottomNavbar";
 
 export default function Home() {
   return (
     <main className="h-[100vh]">
       <div className="container">
-        <p className="text-light-red">{person.name}</p>
-        <Image src={person.image} alt="Ezekiel" width={20} height={20} />
-
-        <div>
-          <button className="btn-primary">View all Products</button>
-        </div>
-        <div>
-          <button className="btn-dark">View all Products</button>
-        </div>
+        <Hero />
+        <FlashSales />
+        <BestSelling />
+        <BottomNavbar />
       </div>
     </main>
   );
