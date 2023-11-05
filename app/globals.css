@@ -63,17 +63,6 @@
     justify-content: space-between;
     overflow: hidden;
   }
-  /* 
-  .slider {
-    width: 1308px;
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    scroll-behavior: smooth;
-    position: relative;
-    border: 1px solid red;
-  } */
 
   .title::before {
     content: "";
@@ -105,7 +94,7 @@
   }
 
   .btn-primary {
-    @apply cursor-pointer bg-red text-white rounded-md px-5 py-2 text-sm  capitalize;
+    @apply cursor-pointer bg-red text-white rounded-md px-5 py-3 text-sm  capitalize;
   }
 
   .btn-dark {
@@ -113,10 +102,14 @@
   }
 
   .btn-lemon {
-    @apply cursor-pointer bg-lemon text-white rounded-md px-5 py-2 text-sm  capitalize;
+    @apply cursor-pointer bg-lemon text-white rounded-md px-5 py-3 text-sm  capitalize;
   }
 
   .padding-y {
     @apply py-16;
+  }
+
+  .extra-width {
+    width: calc(3 * 100%);
   }
 }

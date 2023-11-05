@@ -42,7 +42,7 @@ export default function Timer() {
   ];
 
   return (
-    <div className="flex gap-5 items-cente">
+    <div className="flex gap-5 items-center flex-wrap">
       {timeUnits.map((timeUnit, index) => (
         <div
           key={index}

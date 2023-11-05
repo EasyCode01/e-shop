@@ -7,8 +7,11 @@ export default function MenuButton() {
   const { toggleSidebar } = useAppContext();
 
   return (
-    <div className="flex items-center md:hidden " onClick={toggleSidebar}>
-      <MenuOutlined />
+    <div
+      className="flex items-center lg:hidden  cursor-pointer"
+      onClick={toggleSidebar}
+    >
+      <MenuOutlined className="text-3xl" />
     </div>
   );
 }

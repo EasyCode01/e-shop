@@ -16,8 +16,12 @@ export default function Sidebar() {
 
   return (
     <>
-      {showSidebar && (
-        <div className="fixed top-0 left-0 w-80 bg-white h-full z-50 shadow-lg p-4">
+      {
+        <div
+          className={`fixed top-0 left-0 w-3/4 bg-white h-full z-50 shadow-lg p-4 transition-all duration-500 ease-out ${
+            showSidebar ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
           <button
             onClick={toggleSidebar}
             className="mb-4 w-full flex justify-between"
@@ -41,11 +45,11 @@ export default function Sidebar() {
               </h3>
             </div>
             {showCategory ? (
-              <ul className="w-full flex flex-col gap-4">
+              <ul className="w-full flex flex-col gap-4 mt-2">
                 <Categories />
               </ul>
             ) : (
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 mt-2">
                 {navLinks.map((navLink, index) => (
                   <Link
                     href={navLink.link}
@@ -59,7 +63,7 @@ export default function Sidebar() {
             )}
           </div>
         </div>
-      )}
+      }
     </>
   );
 }
