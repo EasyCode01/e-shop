@@ -2,6 +2,7 @@ import { useState } from "react";
 import {
   FavoriteBorderOutlined,
   RemoveRedEyeOutlined,
+  FavoriteBorderOutlinedIcon,
 } from "@mui/icons-material";
 
 export default function ProductCard({ product, type }) {
@@ -103,11 +104,10 @@ export default function ProductCard({ product, type }) {
           </div>
         </div>
       </>
-
     );
   }
-  
-   if (type === "Explore products") {
+
+  if (type === "Explore products") {
     return (
       <div className="product-card flex flex-col gap-4 cursor-pointer shadow-lg rounded-md overflow-hidden">
         <div className="bg-gray  flex h-40 justify-center items-center relative rounded-sm">
@@ -161,5 +161,6 @@ export default function ProductCard({ product, type }) {
           <div className="w-[15px] h-[15px] rounded-full bg-dark p-2 border-2 border-dark border-solid"></div>
         </div>
       </div>
-}
+    );
+  }
 }

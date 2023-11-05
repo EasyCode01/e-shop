@@ -113,12 +113,11 @@ img {
     @apply py-16;
   }
 
-
   .product-card:hover .product-btn {
     display: block;
 
-  .extra-width {
-    width: calc(3 * 100%);
-
+    .extra-width {
+      width: calc(3 * 100%);
+    }
   }
 }
