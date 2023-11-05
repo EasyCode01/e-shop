@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+img {
+  width: auto;
+}
+
 @layer utilities {
   .container {
     @apply max-w-[90%] 2xl:max-w-[1300px] mx-auto;
@@ -109,7 +113,12 @@
     @apply py-16;
   }
 
+
+  .product-card:hover .product-btn {
+    display: block;
+
   .extra-width {
     width: calc(3 * 100%);
+
   }
 }

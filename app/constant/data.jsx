@@ -1,5 +1,3 @@
-// local data goes in here
-
 export const navLinks = [
   {
     label: "Home",
@@ -40,6 +38,7 @@ export const hero = [
   },
 ];
 export const productsData = [
+
   {
     id: 1,
     name: "Amazon Echo",
@@ -274,4 +273,19 @@ export const productsData = [
     discountPercentage: 0,
     newPrice: 39.99,
   },
+
+  {
+    id: 19,
+    name: "Breed Dry Dog Food",
+    image: "/images/dry-dog-food.png",
+    category: "Women's fashion",
+    categoryType: "Best selling products",
+    isNew: true,
+    numberOfProducts: 45,
+    price: 39.99,
+    ratings: 4.5,
+    discountPercentage: 0,
+    newPrice: 39.99,
+  },
+
 ];

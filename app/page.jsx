@@ -2,6 +2,11 @@ import Hero from "./sections/home/Hero";
 import FlashSales from "./sections/home/FlashSales";
 import BestSelling from "./sections/home/BestSelling";
 import BottomNavbar from "./components/BottomNavbar";
+import Footer from "./components/footer/Footer";
+import ExploreProducts from "./sections/home/ExploreProducts";
+import FastDelivery from "./sections/home/FastDelivery";
+import MiniBanner from "./sections/home/MiniBanner";
+import NewArrival from "./sections/home/NewArrival";
 
 export default function Home() {
   return (
@@ -12,6 +17,13 @@ export default function Home() {
         <BestSelling />
         <BottomNavbar />
       </div>
+    
+     <MiniBanner />
+      <ExploreProducts />
+      <NewArrival />
+      <FastDelivery />
+      <Footer />
+
     </main>
   );
 }
