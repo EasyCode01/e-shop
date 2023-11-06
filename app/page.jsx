@@ -17,13 +17,12 @@ export default function Home() {
         <BestSelling />
         <BottomNavbar />
       </div>
-    
-     <MiniBanner />
+
+      <MiniBanner />
       <ExploreProducts />
       <NewArrival />
       <FastDelivery />
       <Footer />
-
     </main>
   );
 }
