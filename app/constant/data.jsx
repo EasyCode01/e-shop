@@ -38,7 +38,6 @@ export const hero = [
   },
 ];
 export const productsData = [
-
   {
     id: 1,
     name: "Amazon Echo",
@@ -74,7 +73,7 @@ export const productsData = [
     isNew: true,
     numberOfProducts: 15,
     price: 299.99,
-    ratings: 4.7,
+    ratings: 2.7,
     discountPercentage: 15,
     newPrice: 254.99,
   },
@@ -126,7 +125,7 @@ export const productsData = [
     isNew: false,
     numberOfProducts: 40,
     price: 49.99,
-    ratings: 4.9,
+    ratings: 3.9,
     discountPercentage: 20,
     newPrice: 39.99,
   },
@@ -139,7 +138,7 @@ export const productsData = [
     isNew: false,
     numberOfProducts: 30,
     price: 999.99,
-    ratings: 4.5,
+    ratings: 2.5,
     discountPercentage: 10,
     newPrice: 899.99,
   },
@@ -191,7 +190,7 @@ export const productsData = [
     isNew: true,
     numberOfProducts: 30,
     price: 149.99,
-    ratings: 4.7,
+    ratings: 2.7,
     discountPercentage: 20,
     newPrice: 119.99,
   },
@@ -230,7 +229,7 @@ export const productsData = [
     isNew: true,
     numberOfProducts: 50,
     price: 299.99,
-    ratings: 4.9,
+    ratings: 2.9,
     discountPercentage: 10,
     newPrice: 269.99,
   },
@@ -256,7 +255,7 @@ export const productsData = [
     isNew: false,
     numberOfProducts: 60,
     price: 249.99,
-    ratings: 4.8,
+    ratings: 3.8,
     discountPercentage: 30,
     newPrice: 174.99,
   },
@@ -287,5 +286,4 @@ export const productsData = [
     discountPercentage: 0,
     newPrice: 39.99,
   },
-
 ];

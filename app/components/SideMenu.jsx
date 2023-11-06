@@ -18,7 +18,7 @@ export default function Sidebar() {
     <>
       {
         <div
-          className={`fixed top-0 left-0 w-3/4 bg-white h-full z-50 shadow-lg p-4 transition-all duration-500 ease-out ${
+          className={`fixed top-0 left-0 w-3/4 bg-white h-full z-[100] shadow-lg p-4 transition-all duration-500 ease-out ${
             showSidebar ? "translate-x-0" : "-translate-x-full"
           }`}
         >
