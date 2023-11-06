@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import { ContextProvider } from "./context/AppContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/footer/Footer";
+import BottomNavbar from "./components/BottomNavbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +21,11 @@ export default function RootLayout({ children }) {
         <ContextProvider>
           <Navbar />
           {children}
+          <BottomNavbar />
           <Footer />
         </ContextProvider>
+        
+       
       </body>
     </html>
   );
