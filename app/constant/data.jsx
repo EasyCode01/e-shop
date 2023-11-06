@@ -1,19 +1,73 @@
+import {
+  AccountBalanceOutlined,
+  MonetizationOnOutlined,
+  ShoppingBagOutlined,
+  StoreOutlined,
+} from "@mui/icons-material";
+import Instagram from "@mui/icons-material/Instagram";
+import LinkedIn from "@mui/icons-material/LinkedIn";
+import Twitter from "@mui/icons-material/Twitter";
+
 export const navLinks = [
   {
     label: "Home",
     link: "/",
   },
   {
-    label: "Contact",
-    link: "/contact",
-  },
-  {
     label: "About",
     link: "/about",
   },
   {
+    label: "Contact",
+    link: "/contact",
+  },
+  {
     label: "SignUp",
     link: "/signup",
+  },
+];
+
+export const analytics = [
+  {
+    icon: <StoreOutlined />,
+    number: "10.5k",
+    title: "Sallers active in our site",
+  },
+  {
+    icon: <MonetizationOnOutlined />,
+    number: "33k",
+    title: "Monthly product sale",
+  },
+  {
+    icon: <ShoppingBagOutlined />,
+    number: "45.5k",
+    title: "Customers active in our site",
+  },
+  {
+    icon: <AccountBalanceOutlined />,
+    number: "25.5k",
+    title: "Annual gross sale in our site",
+  },
+];
+
+export const founders = [
+  {
+    image: "/images/tom-cruise.png",
+    role: "Founder & Chairman",
+    name: "Tom Cruise",
+    icons: [<Twitter />, <Instagram />, <LinkedIn />],
+  },
+  {
+    image: "/images/emma-watson.png",
+    role: "Managing Director",
+    name: "Emma Watson",
+    icons: [<Twitter />, <Instagram />, <LinkedIn />],
+  },
+  {
+    image: "/images/will-smith.png",
+    role: "Product Designer",
+    name: "Will Smith",
+    icons: [<Twitter />, <Instagram />, <LinkedIn />],
   },
 ];
 
