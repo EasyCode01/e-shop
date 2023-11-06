@@ -20,6 +20,10 @@ img {
     border: 1px solid rgba(128, 128, 128, 0.575);
   }
 
+  .margin-top {
+    margin-top: 5%;
+  }
+
   .analytics {
     flex: 1;
     height: 250px;

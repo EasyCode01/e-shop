@@ -6,7 +6,7 @@ export default function AnalyticCard() {
       {analytics.map((item, index) => (
         <div
           className={`analytics p-4 rounded-lg text-center ${
-            index === 1 ? "bg-red" : ""
+            index === 1 ? "bg-red text-white" : ""
           }`}
           key={index}
         >

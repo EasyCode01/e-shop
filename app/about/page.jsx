@@ -8,7 +8,7 @@ export default function About() {
   const pathname = usePathname();
 
   return (
-    <main className="container pt-8">
+    <main className="container mt-40 md:mt-30 lg:mt-10">
       <nav className="capitalize">
         <span className="text-deep-gray mr-2">Home </span>
         {pathname}

@@ -11,7 +11,7 @@ import Twitter from "@mui/icons-material/Twitter";
 export const navLinks = [
   {
     label: "Home",
-    link: "/home",
+    link: "/",
   },
   {
     label: "About",
