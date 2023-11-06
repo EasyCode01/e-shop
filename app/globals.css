@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
 img {
   width: auto;
@@ -17,6 +18,20 @@ img {
 
   .border-bottom {
     border: 1px solid rgba(128, 128, 128, 0.575);
+  }
+
+  .margin-top {
+    margin-top: 5%;
+  }
+
+  .analytics {
+    flex: 1;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    border: 1px solid gray;
   }
 
   .product-cards {

@@ -5,7 +5,7 @@ import GppGoodOutlinedIcon from "@mui/icons-material/GppGoodOutlined";
 
 import ScrollTop from "@/app/components/ScrollTop";
 
-export default function FastDelivery() {
+export default function FastDelivery({ hidden }) {
   return (
     <section className="pb-16">
       <div className="container flex flex-col items-center gap-14 relative">
@@ -44,7 +44,7 @@ export default function FastDelivery() {
           </div>
         </div>
 
-        <ScrollTop />
+        <ScrollTop className={hidden} />
       </div>
     </section>
   );

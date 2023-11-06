@@ -10,7 +10,7 @@ import SideMenu from "./SideMenu";
 
 export default function Navbar() {
   return (
-    <nav className="flex flex-col justify-center items-center border-bottom  max-lg:fixed top-0 left-0 z-20 bg-white w-full shadow-xl">
+    <nav className="flex flex-col justify-center items-center  max-lg:fixed top-0 left-0 z-20 bg-white w-full shadow-xl">
       <SideMenu />
       <header className="flex justify-center md:justify-end bg-black text-white  p-1  w-full ">
         <div className="w-4/5 flex flex-col md:flex-row gap-2 justify-evenly">

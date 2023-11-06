@@ -22,6 +22,11 @@ module.exports = {
       boxShadow: {
         "3xl": "-10px -8px 15px rgba(0, 0, 0, 0.2)",
       },
+      lineHeight: {
+        12: "3rem",
+        14: "3.5rem",
+        16: "4rem",
+      },
     },
   },
   plugins: [],
