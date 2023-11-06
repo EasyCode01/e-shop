@@ -9,13 +9,12 @@ import { useState } from "react";
 export default function HeroCarousel() {
   let [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
-    currentIndex++;
-    currentIndex === 3 ? (currentIndex = 0) : currentIndex + 1;
-    setCurrentIndex(currentIndex);
-  };
-
   useEffect(() => {
+    const nextSlide = () => {
+      currentIndex++;
+      currentIndex === 3 ? (currentIndex = 0) : currentIndex + 1;
+      setCurrentIndex(currentIndex);
+    };
     let intervalId = setInterval(nextSlide, 5000);
 
     return () => clearInterval(intervalId);
