@@ -1,9 +1,13 @@
+"use client";
 import { useState } from "react";
 import {
   FavoriteBorderOutlined,
   RemoveRedEyeOutlined,
-  FavoriteBorderOutlinedIcon,
 } from "@mui/icons-material";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
+import StarIcon from "@mui/icons-material/Star";
 
 export default function ProductCard({ product, type }) {
   const [hoveredProduct, setHoveredProduct] = useState(null);
@@ -127,10 +131,10 @@ export default function ProductCard({ product, type }) {
 
           <div className="absolute top-3 right-3 flex flex-col gap-2">
             <div className="w-[20px] h-[20px] flex justify-center items-center bg-white rounded-full">
-              <FavoriteBorderOutlinedIcon />
+              <FavoriteBorderOutlinedIcon className="text-sm" />
             </div>
             <div className="w-[20px] h-[20px] flex justify-center items-center bg-white rounded-full">
-              <VisibilityOutlinedIcon />
+              <VisibilityOutlinedIcon className="text-sm" />
             </div>
           </div>
 
@@ -145,7 +149,7 @@ export default function ProductCard({ product, type }) {
             <p className="text-red">${product.price}</p>
             <div>
               {[...Array(5)].map((_, index) =>
-                product.rating > index ? (
+                product.ratings > index ? (
                   <StarIcon key={index} className="text-orange" />
                 ) : (
                   <StarBorderIcon key={index} className="text-deep-gray" />

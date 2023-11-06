@@ -13,8 +13,8 @@ export default function Navbar() {
     <nav className="flex flex-col justify-center items-center border-bottom  max-lg:fixed top-0 left-0 z-20 bg-white w-full shadow-xl">
       <SideMenu />
       <header className="flex justify-center md:justify-end bg-black text-white  p-1  w-full ">
-        <div className="w-4/5 flex flex-col md-flex-row gap-2 justify-evenly">
-          <small className="text-[10px]">
+        <div className="w-4/5 flex flex-col md:flex-row gap-2 justify-evenly">
+          <small className="text-[10px] sm:text-[14px]">
             Summer Sale For All Swim Suits And Free Expres Delivery - OFF 50%!{" "}
             <Link href="/shop">ShopNow</Link>
           </small>

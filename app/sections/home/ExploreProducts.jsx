@@ -3,7 +3,7 @@ import SectionTitle from "../../components/SectionTitle";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ProductCard from "../../components/ProductCard";
-import { products } from "../../constant/data";
+import { productsData } from "../../constant/data";
 
 export default function ExploreProducts() {
   return (
@@ -23,8 +23,8 @@ export default function ExploreProducts() {
 
         <div className="my-10">
           <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-x-7 gap-y-10">
-            {products?.length &&
-              products.map((product) => (
+            {productsData?.length &&
+              productsData.map((product) => (
                 <ProductCard
                   key={product.id}
                   product={product}

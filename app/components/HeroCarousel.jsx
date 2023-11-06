@@ -62,7 +62,7 @@ export default function HeroCarousel() {
           <div
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 rounded-full bg-red ${
+            className={`w-3 h-3 rounded-full bg-deep-gray ${
               currentIndex === index
                 ? "bg-red border-2 border-solid border-white"
                 : "bg-deep-gray"
