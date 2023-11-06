@@ -4,12 +4,12 @@ export const navLinks = [
     link: "/home",
   },
   {
-    label: "Contact",
-    link: "/contact",
-  },
-  {
     label: "About",
     link: "/about",
+  },
+  {
+    label: "Contact",
+    link: "/contact",
   },
   {
     label: "SignUp",
