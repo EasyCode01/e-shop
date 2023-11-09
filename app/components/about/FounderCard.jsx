@@ -1,16 +1,21 @@
 "use client";
 import { useEffect, useState } from "react";
 import { founders } from "@/app/constant/data";
+import Image from "next/image";
 
 export default function FounderCard() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const numVisibleCards = 3;
 
-  const nextSlide = () => {
-    setCurrentIndex((currentIndex + 1) % founders.length);
+  const KeyedMaterialUIIcon = ({ icon, index }) => {
+    return React.cloneElement(icon, { key: index });
   };
 
   useEffect(() => {
+    const nextSlide = () => {
+      setCurrentIndex((currentIndex + 1) % founders.length);
+    };
+
     const intervalId = setInterval(nextSlide, 5000);
     return () => clearInterval(intervalId);
   }, [currentIndex]);
@@ -33,9 +38,11 @@ export default function FounderCard() {
             style={{ width: `${100 / numVisibleCards}%` }}
           >
             <div className="bg-gray rounded-lg overflow-hidden">
-              <img
+              <Image
                 src={founder.image}
                 alt={founder.name}
+                width={250}
+                height={100}
                 className="w-full h-auto object-cover"
               />
             </div>
@@ -44,7 +51,9 @@ export default function FounderCard() {
               <small>{founder.role}</small>
               <ul className="flex gap-4">
                 {founder.icons.map((icon, idx) => (
-                  <li key={idx}>{icon}</li>
+                  <li key={idx}>
+                    <KeyedMaterialUIIcon icon={icon} index={idx} />
+                  </li>
                 ))}
               </ul>
             </div>

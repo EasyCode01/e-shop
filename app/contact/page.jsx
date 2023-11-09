@@ -14,7 +14,9 @@ export default function ContactPage() {
               <p>Call To us</p>
             </div>
 
-            <p className="my-4 text-sm">We are available 24/7, 7 days a week</p>
+            <p className="my-4 text-sm">
+              We are available 24/7&sbquo; 7 days a week
+            </p>
 
             <p className="text-sm">Phone: +123455657</p>
           </div>

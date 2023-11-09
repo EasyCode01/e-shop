@@ -12,7 +12,9 @@ export default function HeroCarousel() {
   useEffect(() => {
     const nextSlide = () => {
       currentIndex++;
-      currentIndex === 3 ? (currentIndex = 0) : currentIndex + 1;
+      if (currentIndex === 3) {
+        currentIndex = 0;
+      }
       setCurrentIndex(currentIndex);
     };
     let intervalId = setInterval(nextSlide, 5000);
