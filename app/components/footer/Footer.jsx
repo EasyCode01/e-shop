@@ -39,12 +39,16 @@ export default function Footer() {
             <div className="flex flex-col gap-5">
               <div>
                 <h3 className="text-white max-sm:text-sm">
-                  8, Kelin close Ajah
+                  8&sbquo; Kelin close Ajah
                 </h3>
-                <h3 className="text-white max-sm:text-sm">Lagos, Nigeria</h3>
+                <h3 className="text-white max-sm:text-sm">
+                  Lagos&sbquo; Nigeria
+                </h3>
               </div>
               <div>
-                <p className="text-white max-sm:text-sm">exclusive@gmail.com</p>
+                <p className="text-white max-sm:text-sm">
+                  exclusive@gmail&#8228;com
+                </p>
                 <p>+234 706 465 5983</p>
               </div>
             </div>
@@ -109,7 +113,7 @@ export default function Footer() {
         </div>
 
         <p className="text-center text-deep-gray mt-12">
-          &copy; Copyright Rimel 2023. All right reserved
+          &copy; Copyright Rimel 2023&#8228; All right reserved
         </p>
       </div>
     </section>

@@ -1,42 +1,33 @@
-"use client";
-import { usePathname } from "next/navigation";
+import Image from "next/image";
+
 import AnalyticCard from "../components/about/AnalyticCard";
 import FounderCard from "../components/about/FounderCard";
 import FastDelivery from "../sections/home/FastDelivery";
+import aboutImage from "../../public/images/two-african-ladies.png";
 
 export default function About() {
-  const pathname = usePathname();
-
   return (
-    <main className="container mt-40 md:mt-30 lg:mt-10">
-      <nav className="capitalize">
-        <span className="text-deep-gray mr-2">Home </span>
-        {pathname}
-      </nav>
-
+    <main className="container">
       <div className="container py-8 flex flex-col gap-10">
         <div className="flex flex-col-reverse md:flex-row items-center">
           <div className="md:flex-1 flex flex-col gap-5 pr-4">
             <h1 className="text-4xl font-semibold py-2">Our Story</h1>
             <p>
-              Launched in 2015, Exclusive is South Asia's premier online
-              shopping marketplace with an active presence in Bangladesh.
-              Supported by a wide range of tailored marketing, data, and service
-              solutions, Exclusive has 10,500 sellers and 300 brands and serves
-              3 million customers across the region.
+              Launched in 2015, Exclusive is South Asia&prime;s premier online
+              shopping marketplace with an active presence in Bangladesh&#8228;
+              Supported by a wide range of tailored marketing&sbquo; data and
+              service solutions&sbquo; Exclusive has 10&sbquo;500 sellers and
+              300 brands and serves 3 million customers across the region&#8228;
             </p>
             <p>
-              Exclusive has more than 1 million products to offer, growing at a
+              Exclusive has more than 1 million products to offer growing at a
               very fast pace. Exclusive offers a diverse assortment in
-              categories ranging from consumer goods to fashion and electronics.
+              categories ranging from consumer goods to fashion and
+              electronics&#8228;
             </p>
           </div>
           <div className="md:flex-1">
-            <img
-              src="images/two-african-ladies.png"
-              alt="about image"
-              className="w-full"
-            />
+            <Image src={aboutImage} alt="about image" className="w-full" />
           </div>
         </div>
 
