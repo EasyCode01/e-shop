@@ -73,19 +73,19 @@ export const founders = [
 
 export const hero = [
   {
-    image: "images/hero-frame-1.png",
+    image: "/images/hero-frame-1.png",
     text: "Up to 10%  off Voucher",
     name: "iPhone 14 series",
     tinyImage: "/images/apple-gray-logo.png",
   },
   {
-    image: "images/boomblox.png",
+    image: "/images/boomblox.png",
     text: "Up to 20%  off Voucher",
     name: "BoomBlox series",
     tinyImage: "/images/boomblox.png",
   },
   {
-    image: "images/ps5-play-station.png",
+    image: "/images/ps5-play-station.png",
     text: "Up to 15%  off Voucher",
     name: "Play Station 5",
     tinyImage: "/images/ps5-play-station.png",

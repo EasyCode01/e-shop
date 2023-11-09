@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { founders } from "@/app/constant/data";
 import Image from "next/image";
 
