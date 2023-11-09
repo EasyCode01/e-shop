@@ -4,9 +4,6 @@ import {
   ShoppingBagOutlined,
   StoreOutlined,
 } from "@mui/icons-material";
-import Instagram from "@mui/icons-material/Instagram";
-import LinkedIn from "@mui/icons-material/LinkedIn";
-import Twitter from "@mui/icons-material/Twitter";
 
 export const navLinks = [
   {
@@ -55,19 +52,25 @@ export const founders = [
     image: "/images/tom-cruise.png",
     role: "Founder & Chairman",
     name: "Tom Cruise",
-    icons: [<Twitter />, <Instagram />, <LinkedIn />],
+    twitterLink: "#",
+    instagramLink: "#",
+    LinkedInLink: "#",
   },
   {
     image: "/images/emma-watson.png",
     role: "Managing Director",
     name: "Emma Watson",
-    icons: [<Twitter />, <Instagram />, <LinkedIn />],
+    twitterLink: "#",
+    instagramLink: "#",
+    LinkedInLink: "#",
   },
   {
     image: "/images/will-smith.png",
     role: "Product Designer",
     name: "Will Smith",
-    icons: [<Twitter />, <Instagram />, <LinkedIn />],
+    twitterLink: "#",
+    instagramLink: "#",
+    LinkedInLink: "#",
   },
 ];
 

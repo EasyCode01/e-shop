@@ -55,6 +55,7 @@ export default function Sidebar() {
                     href={navLink.link}
                     key={index}
                     className="link relative pb-5 border-b border-deep-gray"
+                    onClick={toggleSidebar}
                   >
                     {navLink.label}
                   </Link>

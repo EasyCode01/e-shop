@@ -4,6 +4,7 @@ import AnalyticCard from "../components/about/AnalyticCard";
 import FounderCard from "../components/about/FounderCard";
 import FastDelivery from "../sections/home/FastDelivery";
 import aboutImage from "../../public/images/two-african-ladies.png";
+import FounderList from "../components/about/FounderList";
 
 export default function About() {
   return (
@@ -37,7 +38,7 @@ export default function About() {
           </div>
           <div className="flex gap-5 flex-col">
             <div className="flex overflow-x-hidden w-full ">
-              <FounderCard />
+              <FounderList />
             </div>
             <div className="pt-12">
               <FastDelivery />
