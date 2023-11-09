@@ -1,5 +1,6 @@
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import FooterIcon from "./FooterIcon";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -93,15 +94,30 @@ export default function Footer() {
 
             <div className="flex gap-3">
               <div>
-                <img src="/images/qr-code.png" alt="qr-code" />
+                <Image
+                  width={100}
+                  height={200}
+                  src="/images/qr-code.png"
+                  alt="qr-code"
+                />
               </div>
               <div className="flex flex-col gap-3">
                 <div>
-                  <img src="/images/google-play.png" alt="google-play" />
+                  <Image
+                    width={100}
+                    height={50}
+                    src="/images/google-play.png"
+                    alt="google-play"
+                  />
                 </div>
 
                 <div>
-                  <img src="/images/apple-store.png" alt="apple store" />
+                  <Image
+                    width={100}
+                    height={50}
+                    src="/images/apple-store.png"
+                    alt="apple store"
+                  />
                 </div>
               </div>
             </div>

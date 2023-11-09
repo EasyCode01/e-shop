@@ -21,7 +21,7 @@ export default function ExploreProducts() {
     const shuffledProducts = [...productsData];
     shuffleArray(shuffledProducts);
     setProducts(shuffledProducts);
-  }, [productsData]);
+  }, []);
 
   return (
     <section className="padding-y">
