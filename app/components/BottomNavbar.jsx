@@ -3,6 +3,7 @@ import {
   Search,
   ShoppingCartOutlined,
 } from "@mui/icons-material";
+import Link from "next/link";
 
 const BottomNavbar = () => {
   return (
@@ -15,7 +16,12 @@ const BottomNavbar = () => {
         />
         <Search className="cursor-pointer" />
       </form>
-      <FavoriteBorder className="cursor-pointer" />
+      <Link
+        href="/wishlist"
+        className="hover:bg-red p-2 hover:text-white rounded-full hover:-translate-y-2 transition-all duration-500 ease-out"
+      >
+        <FavoriteBorder className="cursor-pointer" />
+      </Link>
       <ShoppingCartOutlined className="cursor-pointer" />
     </div>
   );

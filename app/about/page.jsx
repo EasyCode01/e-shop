@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import AnalyticCard from "../components/about/AnalyticCard";
-import FounderCard from "../components/about/FounderCard";
 import FastDelivery from "../sections/home/FastDelivery";
 import aboutImage from "../../public/images/two-african-ladies.png";
 import FounderList from "../components/about/FounderList";
