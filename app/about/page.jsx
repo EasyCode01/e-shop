@@ -10,7 +10,7 @@ export default function About() {
   return (
     <main className="container mt-40 md:mt-30 lg:mt-10">
       <nav className="capitalize">
-        <span className="text-deep-gray mr-2">Home </span>
+        <span className="text-deep-gray mr-2 opacity-50">Home </span>
         {pathname}
       </nav>
 
