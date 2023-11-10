@@ -54,6 +54,12 @@ export default function Navbar() {
               </div>
             </Link>
             <ShoppingCartOutlined className="cursor-pointer" />
+
+          <div className="flex gap-4 justify-center items-center">
+            <FavoriteBorder className="cursor-pointer" />
+            <Link href="/cart">
+              <ShoppingCartOutlined className="cursor-pointer" />
+            </Link>
           </div>
         </div>
       </div>

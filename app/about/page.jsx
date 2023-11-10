@@ -7,6 +7,7 @@ import FounderList from "../components/about/FounderList";
 
 export default function About() {
   return (
+
     <main className="container">
       <div className="container py-8 flex flex-col gap-10">
         <div className="flex flex-col-reverse md:flex-row items-center">

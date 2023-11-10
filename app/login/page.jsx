@@ -44,6 +44,6 @@ export default function Login() {
           </form>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

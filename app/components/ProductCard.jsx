@@ -12,6 +12,7 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Image from "next/image";
 
+
 export default function ProductCard({ product, type }) {
   const [hoveredProduct, setHoveredProduct] = useState(null);
 
