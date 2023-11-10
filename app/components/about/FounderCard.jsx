@@ -4,6 +4,7 @@ import Twitter from "@mui/icons-material/Twitter";
 import Image from "next/image";
 import Link from "next/link";
 
+
 export default function FounderCard({ founder, numVisibleCards }) {
   return (
     <div

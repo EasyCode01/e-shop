@@ -10,6 +10,7 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 import Image from "next/image";
 
+
 export default function ProductCard({ product, type }) {
   const [hoveredProduct, setHoveredProduct] = useState(null);
 
