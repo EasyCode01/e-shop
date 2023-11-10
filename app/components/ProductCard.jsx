@@ -8,6 +8,7 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
+import StarRating from "./product/StarRating";
 
 export default function ProductCard({ product, type }) {
   const [hoveredProduct, setHoveredProduct] = useState(null);
@@ -104,7 +105,9 @@ export default function ProductCard({ product, type }) {
               <span className="text-red">${product.newPrice}</span>
               <span className="ml-2 line-through">${product.price}</span>
             </small>
-            <p className="text-gray-600">Stars: {product.ratings}</p>
+            <p className="text-gray-600">
+              <StarRating />
+            </p>
           </div>
         </div>
       </>
