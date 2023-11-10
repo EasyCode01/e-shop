@@ -22,7 +22,12 @@ const BottomNavbar = () => {
       >
         <FavoriteBorder className="cursor-pointer" />
       </Link>
-      <ShoppingCartOutlined className="cursor-pointer" />
+      <Link
+        href="/cart"
+        className="hover:bg-red p-2 hover:text-white rounded-full hover:-translate-y-2 transition-all duration-500 ease-out"
+      >
+        <ShoppingCartOutlined className="cursor-pointer" />
+      </Link>
     </div>
   );
 };
