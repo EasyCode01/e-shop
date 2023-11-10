@@ -8,6 +8,8 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Image from "next/image";
 
 
@@ -64,11 +66,11 @@ export default function ProductCard({ product, type }) {
             <div>
               {[...Array(5)].map((_, index) =>
                 product.ratings > index ? (
-                  <StarIcon key={index} className="text-orange text-lg" />
+                  <StarIcon key={index} className="text-orange text-sm" />
                 ) : (
                   <StarBorderIcon
                     key={index}
-                    className="text-deep-gray text-lg"
+                    className="text-deep-gray text-sm"
                   />
                 )
               )}
@@ -127,11 +129,11 @@ export default function ProductCard({ product, type }) {
             <div>
               {[...Array(5)].map((_, index) =>
                 product.ratings > index ? (
-                  <StarIcon key={index} className="text-orange text-lg" />
+                  <StarIcon key={index} className="text-orange text-sm" />
                 ) : (
                   <StarBorderIcon
                     key={index}
-                    className="text-deep-gray text-lg"
+                    className="text-deep-gray text-sm"
                   />
                 )
               )}
@@ -144,7 +146,7 @@ export default function ProductCard({ product, type }) {
 
   if (type === "Explore products") {
     return (
-      <div className="product-card flex flex-col gap-0 cursor-pointer shadow-lg rounded-md overflow-hidden">
+      <div className="product-card flex flex-col gap-0  shadow-lg rounded-md overflow-hidden">
         <div className="bg-gray flex h-full  justify-center items-center relative rounded-sm">
           <div className="w-[80px] h-[70px] flex justify-center items-center relative">
             <Image
@@ -156,37 +158,37 @@ export default function ProductCard({ product, type }) {
           </div>
 
           {product.isNew ? (
-            <div className="absolute top-3 left-3 text-white bg-lemon px-2 py-1 rounded-sm flex justify-center items-center">
+            <div className="absolute top-3 left-3 text-white text-sm bg-lemon px-1 py-[2px] rounded-sm flex justify-center items-center">
               New
             </div>
           ) : null}
 
           <div className="absolute top-3 right-3 flex flex-col gap-2">
-            <div className="w-[20px] h-[20px] flex justify-center items-center bg-white rounded-full">
+            <div className="w-[20px] h-[20px] cursor-pointer flex justify-center items-center bg-white rounded-full">
               <FavoriteBorderOutlinedIcon className="text-sm" />
             </div>
-            <div className="w-[20px] h-[20px] flex justify-center items-center bg-white rounded-full">
+            <div className="w-[20px] h-[20px] cursor-pointer flex justify-center items-center bg-white rounded-full">
               <VisibilityOutlinedIcon className="text-sm" />
             </div>
           </div>
 
-          <div className="w-full hidden absolute bottom-0 product-btn">
+          <div className="w-full absolute bottom-0 product-btn">
             <button className="btn-dark w-full"> Add To cart</button>
           </div>
         </div>
 
         <div className="p-2">
           <p className="text-sm font-bold">{product.name}</p>
-          <div className="flex gap-2 flex-wrap">
-            <p className="text-red">${product.price}</p>
+          <div className="flex gap-2 flex-wrap items-center">
+            <p className="text-red text-sm">${product.price}</p>
             <div>
               {[...Array(5)].map((_, index) =>
                 product.ratings > index ? (
-                  <StarIcon key={index} className="text-orange text-lg" />
+                  <StarIcon key={index} className="text-orange text-sm" />
                 ) : (
                   <StarBorderIcon
                     key={index}
-                    className="text-deep-gray text-lg"
+                    className="text-deep-gray text-sm"
                   />
                 )
               )}
@@ -198,6 +200,112 @@ export default function ProductCard({ product, type }) {
         <div className="flex gap-2 p-2 ">
           <div className="w-[15px] h-[15px] rounded-full bg-red p-2 border-2 border-dark border-solid"></div>
           <div className="w-[15px] h-[15px] rounded-full bg-dark p-2 border-2 border-dark border-solid"></div>
+        </div>
+      </div>
+    );
+  }
+
+  if (type === "wishlist") {
+    return (
+      <div className="product-card flex flex-col gap-0 shadow-lg rounded-md overflow-hidden">
+        <div className="bg-gray flex h-full  justify-center items-center relative rounded-sm">
+          <div className="w-[80px] h-[70px] flex justify-center items-center relative">
+            <Image
+              className="object-cover h-20 max-h-full"
+              src={product.image}
+              alt={product.name}
+              fill={true}
+            />
+          </div>
+
+          {product.isNew ? (
+            <div className="absolute top-3 left-3 text-sm text-white bg-lemon px-1 py-[2px] rounded-sm flex justify-center items-center">
+              New
+            </div>
+          ) : (
+            <div className="absolute top-3 left-3  text-white text-sm bg-red px-1 py-[2px] rounded-sm flex justify-center items-center">
+              -20%
+            </div>
+          )}
+
+          <div className="absolute top-3 right-3 flex flex-col gap-2">
+            <div className="w-[20px] h-[20px] cursor-pointer flex justify-center items-center bg-white rounded-full">
+              <DeleteOutlineIcon className="text-lg" />
+            </div>
+          </div>
+
+          <div className="w-full absolute bottom-0 product-btn">
+            <button className="btn-dark w-full">
+              {" "}
+              <ShoppingCartOutlinedIcon className="text-lg" /> Add To cart
+            </button>
+          </div>
+        </div>
+
+        <div className="p-2">
+          <p className="text-sm font-bold">{product.name}</p>
+          <div className="flex gap-2 flex-wrap">
+            <p className="text-red text-sm">${product.price}</p>
+            <p className="line-through text-deep-gray text-sm">
+              {product.price}
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (type === "just for you") {
+    return (
+      <div className="product-card flex flex-col gap-0  shadow-lg rounded-md overflow-hidden">
+        <div className="bg-gray flex h-full  justify-center items-center relative rounded-sm">
+          <div className="w-[80px] h-[70px] flex justify-center items-center relative">
+            <Image
+              className="object-cover h-20 max-h-full"
+              src={product.image}
+              alt={product.name}
+              fill={true}
+            />
+          </div>
+
+          {product.isNew ? (
+            <div className="absolute top-3 left-3 text-white text-sm bg-lemon px-1 py-[2px] rounded-sm flex justify-center items-center">
+              New
+            </div>
+          ) : null}
+
+          <div className="absolute top-3 right-3 flex flex-col gap-2">
+            <div className="w-[20px] h-[20px] cursor-pointer flex justify-center items-center bg-white rounded-full">
+              <VisibilityOutlinedIcon className="text-sm" />
+            </div>
+          </div>
+
+          <div className="w-full absolute bottom-0 product-btn">
+            <button className="btn-dark w-full">
+              {" "}
+              <ShoppingCartOutlinedIcon className="text-lg" /> Add To cart
+            </button>
+          </div>
+        </div>
+
+        <div className="p-2">
+          <p className="text-sm font-bold">{product.name}</p>
+          <div className="flex gap-2 flex-wrap items-center">
+            <p className="text-red text-sm">${product.price}</p>
+            <div>
+              {[...Array(5)].map((_, index) =>
+                product.ratings > index ? (
+                  <StarIcon key={index} className="text-orange text-sm" />
+                ) : (
+                  <StarBorderIcon
+                    key={index}
+                    className="text-deep-gray text-sm"
+                  />
+                )
+              )}
+            </div>
+            <p>{product.numberOfProducts}</p>
+          </div>
         </div>
       </div>
     );

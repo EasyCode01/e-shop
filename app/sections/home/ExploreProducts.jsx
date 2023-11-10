@@ -38,7 +38,7 @@ export default function ExploreProducts() {
           </div>
         </div>
 
-        <div className="my-10">
+        <div className="mt-10">
           <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-x-7 gap-y-10">
             {products?.length &&
               products
@@ -53,7 +53,7 @@ export default function ExploreProducts() {
           </div>
         </div>
 
-        <div className="text-center">
+        <div className="text-center mt-8">
           <button className="btn-primary mt-2">View All products</button>
         </div>
       </div>

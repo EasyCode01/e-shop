@@ -18,7 +18,7 @@ export default function Navbar() {
             Summer Sale For All Swim Suits And Free Expres Delivery - OFF 50%!{" "}
             <Link href="/shop">ShopNow</Link>
           </small>
-          <select className="hidden md:block bg-transparent border-none">
+          <select className="hidden lg:block bg-transparent border-none">
             <option value="snglish">English</option>
             <option value="spanish">Spanish</option>
           </select>
@@ -27,7 +27,7 @@ export default function Navbar() {
 
       <div className="w-full max-w-[90%] 2xl:max-w-[1300px] flex justify-between py-4 lg:py-6  items-center md:flex-row">
         <h1 className="text-center md:text-left text-xl font-extrabold mr-2 ">
-          Exclusive
+          <Link href="/">Exclusive</Link>
         </h1>
         <div className="gap-7 justify-center lg:justify-start hidden lg:flex">
           <NavLinks />
@@ -46,6 +46,15 @@ export default function Navbar() {
             />
             <Search className="cursor-pointer" />
           </form>
+          <div className="flex gap-6 justify-center items-center">
+            <Link href="/wishlist" className="relative">
+              <FavoriteBorder className="cursor-pointer" />
+              <div className="p-[2px] min-w-[15px] h-[15px] text-white text-xs flex items-center justify-center bg-red rounded-full absolute -top-1 -right-2">
+                4
+              </div>
+            </Link>
+            <ShoppingCartOutlined className="cursor-pointer" />
+
           <div className="flex gap-4 justify-center items-center">
             <FavoriteBorder className="cursor-pointer" />
             <Link href="/cart">

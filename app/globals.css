@@ -7,6 +7,10 @@ img {
   width: auto;
 }
 
+ul {
+  list-style: none;
+}
+
 @layer utilities {
   .container {
     @apply max-w-[90%] 2xl:max-w-[1300px] mx-auto;
@@ -126,12 +130,21 @@ img {
     @apply cursor-pointer bg-lemon text-white rounded-md px-5 py-3 text-sm  capitalize;
   }
 
+  .btn-outline {
+    @apply cursor-pointer bg-none text-dark rounded-md px-5 py-2 text-sm  capitalize border-[1px] border-dark border-solid hover:bg-gray active:translate-y-[2px];
+  }
+
   .padding-y {
-    @apply py-16;
+    @apply py-10;
+  }
+
+  .product-card .product-btn {
+    transition: all 500ms ease;
+    transform: translateX(-100%);
   }
 
   .product-card:hover .product-btn {
-    display: block;
+    transform: translateX(0);
   }
   .extra-width {
     width: calc(3 * 100%);
