@@ -3,7 +3,7 @@
 import { useAppContext } from "@/app/context/AppContext";
 
 export default function Categories() {
-  const { selectCategory, products } = useAppContext();
+  const { selectCategory, products, toggleSidebar } = useAppContext();
 
   const categories = products
     .map((product) => product.category)
@@ -11,6 +11,7 @@ export default function Categories() {
 
   const handleCategoryClick = (category) => {
     selectCategory(category);
+    toggleSidebar();
   };
 
   return (

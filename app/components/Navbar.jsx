@@ -18,7 +18,7 @@ export default function Navbar() {
             Summer Sale For All Swim Suits And Free Expres Delivery - OFF 50%!{" "}
             <Link href="/shop">ShopNow</Link>
           </small>
-          <select className=" bg-transparent border-none">
+          <select className="hidden md:block bg-transparent border-none">
             <option value="snglish">English</option>
             <option value="spanish">Spanish</option>
           </select>

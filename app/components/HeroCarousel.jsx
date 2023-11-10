@@ -2,6 +2,7 @@
 
 import { hero } from "@/app/constant/data";
 import { ArrowForwardOutlined } from "@mui/icons-material";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -11,9 +12,8 @@ export default function HeroCarousel() {
 
   useEffect(() => {
     const nextSlide = () => {
-      currentIndex++;
-      currentIndex === 3 ? (currentIndex = 0) : currentIndex + 1;
-      setCurrentIndex(currentIndex);
+      const nextIndex = (currentIndex + 1) % 3;
+      setCurrentIndex(nextIndex);
     };
     let intervalId = setInterval(nextSlide, 5000);
 
@@ -33,10 +33,13 @@ export default function HeroCarousel() {
           >
             <div className="relative flex flex-col w-full md:w-1/2 p-4 md:p-10 gap-4 md:gap-8 justify-center items-start">
               <div className="flex items-center gap-2 ">
-                <img
+                <Image
                   className="w-10"
                   src={product.tinyImage}
-                  alt="apple logo"
+                  alt={product.name}
+                  quality={100}
+                  width={40}
+                  height={40}
                 />
                 <small>{product.name}</small>
               </div>
@@ -46,12 +49,15 @@ export default function HeroCarousel() {
                 Shop Now <ArrowForwardOutlined />
               </Link>
             </div>
-            <img
-              src={product.image}
-              alt={product.name}
-              key={index}
-              className="h-auto w-full md:w-1/2 h-45 object-cover"
-            />
+            <div className=" w-full md:w-1/2 h-60 relative">
+              <Image
+                src={product.image}
+                alt={product.name}
+                key={index}
+                className="object-contain"
+                fill={true}
+              />
+            </div>
           </div>
         ))}
       </div>

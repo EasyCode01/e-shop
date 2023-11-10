@@ -4,9 +4,6 @@ import {
   ShoppingBagOutlined,
   StoreOutlined,
 } from "@mui/icons-material";
-import Instagram from "@mui/icons-material/Instagram";
-import LinkedIn from "@mui/icons-material/LinkedIn";
-import Twitter from "@mui/icons-material/Twitter";
 
 export const navLinks = [
   {
@@ -55,37 +52,43 @@ export const founders = [
     image: "/images/tom-cruise.png",
     role: "Founder & Chairman",
     name: "Tom Cruise",
-    icons: [<Twitter />, <Instagram />, <LinkedIn />],
+    twitterLink: "#",
+    instagramLink: "#",
+    LinkedInLink: "#",
   },
   {
     image: "/images/emma-watson.png",
     role: "Managing Director",
     name: "Emma Watson",
-    icons: [<Twitter />, <Instagram />, <LinkedIn />],
+    twitterLink: "#",
+    instagramLink: "#",
+    LinkedInLink: "#",
   },
   {
     image: "/images/will-smith.png",
     role: "Product Designer",
     name: "Will Smith",
-    icons: [<Twitter />, <Instagram />, <LinkedIn />],
+    twitterLink: "#",
+    instagramLink: "#",
+    LinkedInLink: "#",
   },
 ];
 
 export const hero = [
   {
-    image: "images/hero-frame-1.png",
+    image: "/images/hero-frame-1.png",
     text: "Up to 10%  off Voucher",
     name: "iPhone 14 series",
     tinyImage: "/images/apple-gray-logo.png",
   },
   {
-    image: "images/boomblox.png",
+    image: "/images/boomblox.png",
     text: "Up to 20%  off Voucher",
     name: "BoomBlox series",
     tinyImage: "/images/boomblox.png",
   },
   {
-    image: "images/ps5-play-station.png",
+    image: "/images/ps5-play-station.png",
     text: "Up to 15%  off Voucher",
     name: "Play Station 5",
     tinyImage: "/images/ps5-play-station.png",

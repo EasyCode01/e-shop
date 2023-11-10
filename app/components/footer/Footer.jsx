@@ -1,5 +1,6 @@
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import FooterIcon from "./FooterIcon";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -39,12 +40,16 @@ export default function Footer() {
             <div className="flex flex-col gap-5">
               <div>
                 <h3 className="text-white max-sm:text-sm">
-                  8, Kelin close Ajah
+                  8&sbquo; Kelin close Ajah
                 </h3>
-                <h3 className="text-white max-sm:text-sm">Lagos, Nigeria</h3>
+                <h3 className="text-white max-sm:text-sm">
+                  Lagos&sbquo; Nigeria
+                </h3>
               </div>
               <div>
-                <p className="text-white max-sm:text-sm">exclusive@gmail.com</p>
+                <p className="text-white max-sm:text-sm">
+                  exclusive@gmail&#8228;com
+                </p>
                 <p>+234 706 465 5983</p>
               </div>
             </div>
@@ -89,15 +94,30 @@ export default function Footer() {
 
             <div className="flex gap-3">
               <div>
-                <img src="/images/qr-code.png" alt="qr-code" />
+                <Image
+                  width={100}
+                  height={200}
+                  src="/images/qr-code.png"
+                  alt="qr-code"
+                />
               </div>
               <div className="flex flex-col gap-3">
                 <div>
-                  <img src="/images/google-play.png" alt="google-play" />
+                  <Image
+                    width={100}
+                    height={50}
+                    src="/images/google-play.png"
+                    alt="google-play"
+                  />
                 </div>
 
                 <div>
-                  <img src="/images/apple-store.png" alt="apple store" />
+                  <Image
+                    width={100}
+                    height={50}
+                    src="/images/apple-store.png"
+                    alt="apple store"
+                  />
                 </div>
               </div>
             </div>
@@ -109,7 +129,7 @@ export default function Footer() {
         </div>
 
         <p className="text-center text-deep-gray mt-12">
-          &copy; Copyright Rimel 2023. All right reserved
+          &copy; Copyright Rimel 2023&#8228; All right reserved
         </p>
       </div>
     </section>

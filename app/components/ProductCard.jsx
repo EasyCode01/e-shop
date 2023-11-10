@@ -8,7 +8,8 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
-import StarRating from "./product/StarRating";
+import Image from "next/image";
+
 
 export default function ProductCard({ product, type }) {
   const [hoveredProduct, setHoveredProduct] = useState(null);
@@ -22,12 +23,15 @@ export default function ProductCard({ product, type }) {
           onMouseEnter={() => setHoveredProduct(product)}
           onMouseLeave={() => setHoveredProduct(null)}
         >
-          <div className="image-wrapper relative">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="product-image"
-            />
+          <div className="image-wrapper ">
+            <div className="w-3/5 h-[80px] relative flex items-center justify-center ">
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill={true}
+                className="product-image object-cover"
+              />
+            </div>
             <small className="absolute top-2 left-2 bg-red text-white text-xs w-10 flex justify-center rounded">
               -{product.discountPercentage}%
             </small>
@@ -57,7 +61,18 @@ export default function ProductCard({ product, type }) {
               <span className="text-red">${product.newPrice}</span>
               <span className="ml-2 line-through">${product.price}</span>
             </small>
-            <p className="text-gray-600">Stars: {product.ratings}</p>
+            <div>
+              {[...Array(5)].map((_, index) =>
+                product.ratings > index ? (
+                  <StarIcon key={index} className="text-orange text-lg" />
+                ) : (
+                  <StarBorderIcon
+                    key={index}
+                    className="text-deep-gray text-lg"
+                  />
+                )
+              )}
+            </div>
           </div>
         </div>
       </>
@@ -72,12 +87,16 @@ export default function ProductCard({ product, type }) {
           onMouseEnter={() => setHoveredProduct(product)}
           onMouseLeave={() => setHoveredProduct(null)}
         >
-          <div className="image-wrapper relative">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="product-image"
-            />
+          <div className="image-wrapper">
+            <div className="w-[80px] h-[80px] relative flex items-center justify-center">
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill={true}
+                quality={100}
+                className="product-image object-cover"
+              />
+            </div>
 
             <div className="flex flex-col gap-2 absolute top-2 right-2 transition-all duration-300">
               <small className="bg-white flex items-center justify-center rounded-full p-1 cursor-pointer ">
@@ -105,9 +124,18 @@ export default function ProductCard({ product, type }) {
               <span className="text-red">${product.newPrice}</span>
               <span className="ml-2 line-through">${product.price}</span>
             </small>
-            <p className="text-gray-600">
-              <StarRating />
-            </p>
+            <div>
+              {[...Array(5)].map((_, index) =>
+                product.ratings > index ? (
+                  <StarIcon key={index} className="text-orange text-lg" />
+                ) : (
+                  <StarBorderIcon
+                    key={index}
+                    className="text-deep-gray text-lg"
+                  />
+                )
+              )}
+            </div>
           </div>
         </div>
       </>
@@ -116,13 +144,14 @@ export default function ProductCard({ product, type }) {
 
   if (type === "Explore products") {
     return (
-      <div className="product-card flex flex-col gap-4 cursor-pointer shadow-lg rounded-md overflow-hidden">
-        <div className="bg-gray  flex h-40 justify-center items-center relative rounded-sm">
-          <div className="">
-            <img
+      <div className="product-card flex flex-col gap-0 cursor-pointer shadow-lg rounded-md overflow-hidden">
+        <div className="bg-gray flex h-full  justify-center items-center relative rounded-sm">
+          <div className="w-[80px] h-[70px] flex justify-center items-center relative">
+            <Image
               className="object-cover h-20 max-h-full"
               src={product.image}
               alt={product.name}
+              fill={true}
             />
           </div>
 
@@ -147,23 +176,26 @@ export default function ProductCard({ product, type }) {
         </div>
 
         <div className="p-2">
-          <p>{product.name}</p>
+          <p className="text-sm font-bold">{product.name}</p>
           <div className="flex gap-2 flex-wrap">
             <p className="text-red">${product.price}</p>
             <div>
               {[...Array(5)].map((_, index) =>
                 product.ratings > index ? (
-                  <StarIcon key={index} className="text-orange" />
+                  <StarIcon key={index} className="text-orange text-lg" />
                 ) : (
-                  <StarBorderIcon key={index} className="text-deep-gray" />
+                  <StarBorderIcon
+                    key={index}
+                    className="text-deep-gray text-lg"
+                  />
                 )
               )}
             </div>
-            <p>{product.numberOfProduct}</p>
+            <p>{product.numberOfProducts}</p>
           </div>
         </div>
 
-        <div className="flex gap-2 p-2">
+        <div className="flex gap-2 p-2 ">
           <div className="w-[15px] h-[15px] rounded-full bg-red p-2 border-2 border-dark border-solid"></div>
           <div className="w-[15px] h-[15px] rounded-full bg-dark p-2 border-2 border-dark border-solid"></div>
         </div>

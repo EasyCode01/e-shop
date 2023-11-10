@@ -1,6 +1,7 @@
 "use client";
 
 import { CountDownTimer } from "@/app/utils/CountDownTimer";
+import Image from "next/image";
 
 export default function MiniBanner() {
   let endDate = "Nov 20 2023 17:49:00";
@@ -48,8 +49,8 @@ export default function MiniBanner() {
               </button>
             </div>
 
-            <div className="w-full lg:w-1/2 z-10">
-              <img src="/images/boomblox.png" alt="Boom Blox" />
+            <div className="w-full  h-[250px] md:w-4/5 md:min-h-[300px] lg:w-1/2 z-10 mx-auto  relative ">
+              <Image fill={true} src="/images/boomblox.png" alt="Boom Blox" />
             </div>
           </div>
         </div>
