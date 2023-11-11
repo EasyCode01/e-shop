@@ -26,14 +26,20 @@ const BottomNavbar = () => {
           4
         </div>
       </Link>
-      <ShoppingCartOutlined className="cursor-pointer" />
+       <Link
+        href="/cart"
+        className="hover:bg-red p-2 hover:text-white rounded-full hover:-translate-y-2 transition-all duration-500 ease-out"
+      >
+        <ShoppingCartOutlined className="cursor-pointer" />
 
+      </Link>
       <Link
         href="/customer/account"
         className="w-8 h-8 bg-red rounded-full flex items-center justify-center cursor-pointer hover:-translate-y-2 transition-all duration-500 ease-out"
       >
         <PermIdentityOutlinedIcon className="text-white" />
-      </Link>
+
+      
     </div>
   );
 };
