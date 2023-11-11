@@ -22,7 +22,8 @@ export default function PendingReviewPage() {
             <p className="text-sm text-center self-center">
               After getting your products delivered, you will be able to rate
               and review them. Your feedback will be published on the product
-              page to help all Jumia's users get the best shopping experience!
+              page to help all Jumia&rsquo;s users get the best shopping
+              experience!
             </p>
           </div>
 
