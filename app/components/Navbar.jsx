@@ -1,12 +1,9 @@
-import {
-  FavoriteBorder,
-  Search,
-  ShoppingCartOutlined,
-} from "@mui/icons-material";
+import { FavoriteBorder, Search } from "@mui/icons-material";
 import Link from "next/link";
 import MenuButton from "./MenuButton";
 import NavLinks from "./NavLinks";
 import SideMenu from "./SideMenu";
+import ShoppingCart from "./nav/ShoppingCart";
 
 export default function Navbar() {
   return (
@@ -53,10 +50,7 @@ export default function Navbar() {
                 4
               </div>
             </Link>
-
-            <Link href="/cart">
-              <ShoppingCartOutlined className="cursor-pointer" />
-            </Link>
+            <ShoppingCart />
           </div>
         </div>
       </div>
