@@ -21,8 +21,7 @@ export default function ProductCard({ product, type }) {
       <>
         <Link href={`/products/${product.id}`}>
           <div
-            className="product-card relative shadow-lg"
-            style={{ minWidth: "200px" }}
+            className="product-card relative shadow-lg w-60"
             onMouseEnter={() => setHoveredProduct(product)}
             onMouseLeave={() => setHoveredProduct(null)}
           >
@@ -32,7 +31,8 @@ export default function ProductCard({ product, type }) {
                   src={product.image}
                   alt={product.name}
                   fill={true}
-                  className="product-image object-cover"
+                  objectFit="contain"
+                  className="product-image"
                 />
               </div>
               <small className="absolute top-2 left-2 bg-red text-white text-xs w-10 flex justify-center rounded">
@@ -99,7 +99,8 @@ export default function ProductCard({ product, type }) {
                   alt={product.name}
                   fill={true}
                   quality={100}
-                  className="product-image object-cover"
+                  objectFit="contain"
+                  className="product-image"
                 />
               </div>
 
@@ -155,10 +156,11 @@ export default function ProductCard({ product, type }) {
           <div className="bg-gray flex h-full  justify-center items-center relative rounded-sm">
             <div className="w-[80px] h-[70px] flex justify-center items-center relative">
               <Image
-                className="object-cover h-20 max-h-full"
+                className="h-20 max-h-full"
                 src={product.image}
                 alt={product.name}
                 fill={true}
+                objectFit="contain"
               />
             </div>
 
@@ -218,10 +220,11 @@ export default function ProductCard({ product, type }) {
           <div className="bg-gray flex h-full  justify-center items-center relative rounded-sm">
             <div className="w-[80px] h-[70px] flex justify-center items-center relative">
               <Image
-                className="object-cover h-20 max-h-full"
+                className="h-20 max-h-full"
                 src={product.image}
                 alt={product.name}
                 fill={true}
+                objectFit="contain"
               />
             </div>
 
