@@ -19,14 +19,22 @@ module.exports = {
         "hover-button": "#A0bcE0",
         "light-cyan": "#CBE4E8",
         "medium-gray": "#d4d4d6",
+        "acc-bg": "#f1f1f2",
+        ash: "#888689",
+        purple: "#87638b",
       },
       boxShadow: {
         "3xl": "-10px -8px 15px rgba(0, 0, 0, 0.2)",
+        "4xxl":
+          "10px 8px 15px rgba(0, 0, 0, 0.1), -10px -8px 15px rgba(0, 0, 0, 0.1)",
       },
       lineHeight: {
         12: "3rem",
         14: "3.5rem",
         16: "4rem",
+      },
+      backgroundImage: {
+        "drop-grad": "linear-gradient(110deg, #8A688E, #524b52)",
       },
     },
   },

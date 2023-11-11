@@ -5,7 +5,7 @@ export default function ContactPage() {
   return (
     <div className="mt-16">
       <div className="w-full flex flex-col-reverse lg:flex-row gap-8">
-        <div className="shadow-lg rounded-md px-5 py-7 flex flex-col gap-4">
+        <div className="shadow-4xxl rounded-md px-5 py-7 flex flex-col gap-4">
           <div className="pb-6 border-b-[1px] border-deep-gray border-solid">
             <div className="flex items-center gap-2">
               <div className="w-[40px] h-[40px] rounded-full flex justify-center items-center bg-red">
@@ -39,7 +39,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="flex-1 shadow-lg rounded-md px-5 py-7 flex flex-col gap-8">
+        <div className="flex-1 shadow-4xxl rounded-md px-5 py-7 flex flex-col gap-8">
           <div className="flex flex-col xl:flex-row gap-5 w-full">
             <input
               className="text-sm flex-1 bg-gray p-3 rounded-md focus:outline-none"

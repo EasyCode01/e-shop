@@ -4,7 +4,7 @@ import { CountDownTimer } from "@/app/utils/CountDownTimer";
 import Image from "next/image";
 
 export default function MiniBanner() {
-  let endDate = "Nov 20 2023 17:49:00";
+  let endDate = "Dec 20 2023 17:49:00";
 
   const { newDay, newHour, newMinute, newSeconds, saleEnded } =
     CountDownTimer(endDate);
