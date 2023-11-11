@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-export default function layout({ children }) {
+export default function Layout({ children }) {
   return (
     <div className="container py-36 md:py-24">
       <nav className="flex gap-2 flex-wrap">
@@ -9,13 +9,11 @@ export default function layout({ children }) {
           Account
         </Link>
         <small>/</small>
-        <Link className="text-sm opacity-50" href="/myaccount">
+        <Link className="text-sm opacity-50" href="/products">
           Gaming
         </Link>
         <small>/</small>
-        <Link className="text-sm opacity-50" href="/products">
-          White Game Pad
-        </Link>
+        <Link className="text-sm" href="/products"></Link>
       </nav>
 
       {children}

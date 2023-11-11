@@ -1,7 +1,7 @@
 import { FavoriteBorder } from "@mui/icons-material";
 import React from "react";
 
-export default function ProductColor() {
+export default function ProductColor({ product }) {
   return (
     <div className="py-5 flex flex-col gap-4">
       <div className="flex items-center">
@@ -37,7 +37,14 @@ export default function ProductColor() {
           </button>
         </div>
         <div className="flex gap-2">
-          <button className=" bg-red text-white p-2 rounded">Buy Now</button>
+          <button
+            disabled={!product.inStock}
+            className={`${
+              product.inStock ? "bg-red" : "bg-gray-500 cursor-not-allowed"
+            } text-white p-2 rounded`}
+          >
+            Add To Cart
+          </button>
           <button className="border border-deep-gray px-3 rounded">
             <FavoriteBorder />
           </button>
