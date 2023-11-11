@@ -8,9 +8,18 @@ export const ContextProvider = ({ children }) => {
   const [products, setProducts] = useState(productsData);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [showSidebar, setShowSidebar] = useState(false);
+  const [isAccountPanelOpen, setIsAccountPanelOpen] = useState(false);
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
+  };
+
+  const openAccountPanel = () => {
+    setIsAccountPanelOpen(true);
+  };
+
+  const closeAccountPanel = () => {
+    setIsAccountPanelOpen(() => false);
   };
 
   const updateProduct = (categoryName, productName, updatedProductData) => {
@@ -48,6 +57,9 @@ export const ContextProvider = ({ children }) => {
         selectCategory,
         toggleSidebar,
         showSidebar,
+        openAccountPanel,
+        closeAccountPanel,
+        isAccountPanelOpen,
       }}
     >
       {children}

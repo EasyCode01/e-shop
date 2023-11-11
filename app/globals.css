@@ -149,4 +149,10 @@ ul {
   .extra-width {
     width: calc(3 * 100%);
   }
+
+  .account-icon:hover .show-dropdown {
+    transform: translateY(0);
+    opacity: 1;
+    z-index: 100;
+  }
 }

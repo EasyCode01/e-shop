@@ -4,6 +4,12 @@ import {
   ShoppingBagOutlined,
   StoreOutlined,
 } from "@mui/icons-material";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import ViewQuiltRoundedIcon from "@mui/icons-material/ViewQuiltRounded";
+import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
+import PendingActionsOutlinedIcon from "@mui/icons-material/PendingActionsOutlined";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 
 export const navLinks = [
   {
@@ -342,5 +348,66 @@ export const productsData = [
     ratings: 4.5,
     discountPercentage: 0,
     newPrice: 39.99,
+  },
+];
+
+export const accountMenus = [
+  {
+    name: "My Exclusive Account",
+    icon: <PersonOutlineOutlinedIcon />,
+    order: 1,
+    link: "/customer/account",
+  },
+  {
+    name: "Orders",
+    icon: <ViewQuiltRoundedIcon />,
+    order: 2,
+    link: "/customer/orders",
+  },
+  {
+    name: "Inbox",
+    icon: <MailOutlinedIcon />,
+    order: 3,
+    link: "/customer/inbox",
+  },
+  {
+    name: "Pending Reviews",
+    icon: <PendingActionsOutlinedIcon />,
+    order: 4,
+    link: "/customer/pending-review",
+  },
+  {
+    name: "Saved Items",
+    icon: <FavoriteBorderOutlinedIcon />,
+    order: 5,
+    link: "/customer/wishlist",
+  },
+];
+
+export const accountDropdown = [
+  {
+    name: "My Account",
+    icon: <PermIdentityOutlinedIcon />,
+    link: "/customer/orders",
+  },
+  {
+    name: "Orders",
+    icon: <ViewQuiltRoundedIcon />,
+    link: "/customer/orders",
+  },
+  {
+    name: "Inbox",
+    icon: <MailOutlinedIcon />,
+    link: "/customer/inbox",
+  },
+  {
+    name: "Pending Reviews",
+    icon: <PendingActionsOutlinedIcon />,
+    link: "/customer/pending-review",
+  },
+  {
+    name: "Saved Items",
+    icon: <FavoriteBorderOutlinedIcon />,
+    link: "/customer/wishlist",
   },
 ];

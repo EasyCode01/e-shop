@@ -3,10 +3,12 @@ import {
   Search,
   ShoppingCartOutlined,
 } from "@mui/icons-material";
+import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import Link from "next/link";
 import MenuButton from "./MenuButton";
 import NavLinks from "./NavLinks";
 import SideMenu from "./SideMenu";
+import AccountDropdown from "./accoutpanel/AccountDropdown";
 
 export default function Navbar() {
   return (
@@ -14,7 +16,7 @@ export default function Navbar() {
       <SideMenu />
       <header className="flex justify-center md:justify-end bg-black text-white  p-1  w-full ">
         <div className="w-4/5 flex flex-col md:flex-row gap-2 justify-evenly">
-          <small className="text-[10px] sm:text-[14px]">
+          <small className="sm:text-[14px]">
             Summer Sale For All Swim Suits And Free Expres Delivery - OFF 50%!{" "}
             <Link href="/shop">ShopNow</Link>
           </small>
@@ -57,6 +59,11 @@ export default function Navbar() {
             <Link href="/cart">
               <ShoppingCartOutlined className="cursor-pointer" />
             </Link>
+
+            <div className="w-8 h-8 bg-red rounded-full flex items-center justify-center cursor-pointer account-icon">
+              <PermIdentityOutlinedIcon className="text-white" />
+              <AccountDropdown />
+            </div>
           </div>
         </div>
       </div>
