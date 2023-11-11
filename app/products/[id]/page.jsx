@@ -83,7 +83,7 @@ export default function ProductPage({ params }) {
               <ProductCard
                 key={product.id}
                 product={product}
-                type="Flash sales"
+                type="Best selling products"
               />
             ))}
           </div>
