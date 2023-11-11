@@ -28,8 +28,8 @@ export default function page() {
             item(s). Our customers rely on reviews from insightful customers
             such as yourself to decide which of our products is best for them.
             We would love to hear your feedback on the seller and item, please
-            click on the "Pending Reviews" section to share. Thank you for
-            shopping on Jumia!
+            click on the &ldquo;Pending Reviews&rdquo; section to share. Thank
+            you for shopping on Jumia!
           </p>
         </div>
       </div>
