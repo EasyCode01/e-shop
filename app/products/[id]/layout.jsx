@@ -4,7 +4,7 @@ import React from "react";
 export default function Layout({ children }) {
   return (
     <div className="container py-36 md:py-24">
-      <nav className="flex gap-2 flex-wrap">
+      <nav className="flex gap-2 flex-wrap font-capitalize">
         <Link className="text-sm opacity-50" href="/account">
           Account
         </Link>
@@ -13,7 +13,9 @@ export default function Layout({ children }) {
           Gaming
         </Link>
         <small>/</small>
-        <Link className="text-sm" href="/products"></Link>
+        <Link className="text-sm" href="/products">
+          white game pad
+        </Link>
       </nav>
 
       {children}
