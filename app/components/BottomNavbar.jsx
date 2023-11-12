@@ -5,6 +5,7 @@ import {
   Search,
   ShoppingCartOutlined,
 } from "@mui/icons-material";
+import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import Link from "next/link";
 import { useCart } from "../context/CartContext";
 
@@ -23,9 +24,12 @@ export default function BottomNavbar() {
       </form>
       <Link
         href="/wishlist"
-        className="hover:bg-red p-2 hover:text-white rounded-full hover:-translate-y-2 transition-all duration-500 ease-out"
+        className="hover:bg-red p-2 hover:text-white rounded-full hover:-translate-y-2 transition-all duration-500 ease-out relative"
       >
         <FavoriteBorder className="cursor-pointer" />
+        <div className="p-[2px] min-w-[15px] h-[15px] text-white text-xs flex items-center justify-center bg-red rounded-full absolute top-1 right-1">
+          4
+        </div>
       </Link>
       <Link
         href="/cart"
@@ -35,6 +39,12 @@ export default function BottomNavbar() {
         <div className="p-[2px] min-w-[15px] h-[15px] text-white text-xs flex items-center justify-center bg-red rounded-full absolute -top-1 -right-2">
           {productCount}
         </div>
+      </Link>
+      <Link
+        href="/customer/account"
+        className="w-8 h-8 bg-red rounded-full flex items-center justify-center cursor-pointer hover:-translate-y-2 transition-all duration-500 ease-out"
+      >
+        <PermIdentityOutlinedIcon className="text-white" />
       </Link>
     </div>
   );
