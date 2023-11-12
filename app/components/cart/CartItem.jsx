@@ -40,14 +40,16 @@ export default function CartItem() {
           key={item.id}
         >
           <div className="flex items-center space-x-4 col-span-1">
-            <Image
-              src={item.image}
-              alt={item.name}
-              width={35}
-              height={35}
-              quality={100}
-              objectFit="contain"
-            />
+            <Link href={`/products/${item.id}`}>
+              <Image
+                src={item.image}
+                alt={item.name}
+                width={35}
+                height={35}
+                quality={100}
+                objectFit="contain"
+              />
+            </Link>
             <span>{item.name}</span>
 
             <div className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 ">
