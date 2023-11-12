@@ -1,4 +1,3 @@
-import { FavoriteBorder, Search } from "@mui/icons-material";
 import {
   FavoriteBorder,
   Search,
