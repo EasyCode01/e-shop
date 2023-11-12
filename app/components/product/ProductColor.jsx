@@ -1,5 +1,5 @@
 import { useCart } from "@/app/context/CartContext";
-import { FavoriteBorder } from "@mui/icons-material";
+import { CheckCircle, FavoriteBorder } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
@@ -69,7 +69,7 @@ export default function ProductColor({ product }) {
         <div className="flex gap-2">
           <button
             onClick={addToCart}
-            className={`btn-dark mt-2 transition-all duration-300 flex items-center justify-center ${
+            className={`btn-primary transition-all duration-300 flex items-center justify-center ${
               justAdded || isProductInCart ? "text-white" : ""
             }`}
             style={buttonStyles}
