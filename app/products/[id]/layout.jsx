@@ -14,7 +14,7 @@ export default function Layout({ children }) {
         </Link>
         <small>/</small>
         <Link className="text-sm" href="/products">
-          white game pad
+          white game pad {/*to be changed later */}
         </Link>
       </nav>
 
