@@ -6,6 +6,8 @@ import { ContextProvider } from "./context/AppContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/footer/Footer";
 import BottomNavbar from "./components/BottomNavbar";
+import { CartContextProvider } from "./context/CartContext";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,14 +20,22 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Toaster
+          toastOptions={{
+            style: {
+              background: "rgb(51 65 85)",
+              color: "#fff",
+            },
+          }}
+        />
         <ContextProvider>
-          <Navbar />
-          {children}
-          <BottomNavbar />
-          <Footer />
+          <CartContextProvider>
+            <Navbar />
+            {children}
+            <BottomNavbar />
+            <Footer />
+          </CartContextProvider>
         </ContextProvider>
-        
-       
       </body>
     </html>
   );

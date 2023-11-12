@@ -1,20 +1,20 @@
 import Link from "next/link";
 import React from "react";
 
-export default function layout({ children }) {
+export default function Layout({ children }) {
   return (
     <div className="container py-36 md:py-24">
-      <nav className="flex gap-2 flex-wrap">
+      <nav className="flex gap-2 flex-wrap font-capitalize">
         <Link className="text-sm opacity-50" href="/account">
           Account
         </Link>
         <small>/</small>
-        <Link className="text-sm opacity-50" href="/myaccount">
+        <Link className="text-sm opacity-50" href="/products">
           Gaming
         </Link>
         <small>/</small>
-        <Link className="text-sm opacity-50" href="/products">
-          White Game Pad
+        <Link className="text-sm" href="/products">
+          white game pad {/*to be changed later */}
         </Link>
       </nav>
 

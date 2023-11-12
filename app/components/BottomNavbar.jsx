@@ -1,3 +1,5 @@
+"use client";
+
 import {
   FavoriteBorder,
   Search,
@@ -5,8 +7,11 @@ import {
 } from "@mui/icons-material";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import Link from "next/link";
+import { useCart } from "../context/CartContext";
 
-const BottomNavbar = () => {
+export default function BottomNavbar() {
+  const { productCount } = useCart();
+
   return (
     <div className="fixed bottom-0 left-0 w-full flex justify-around items-center p-3 z-10 bg-white shadow-3xl md:hidden">
       <form action="" className="flex items-center bg-gray px-2 py-1 text-sm ">
@@ -28,9 +33,12 @@ const BottomNavbar = () => {
       </Link>
       <Link
         href="/cart"
-        className="hover:bg-red p-2 hover:text-white rounded-full hover:-translate-y-2 transition-all duration-500 ease-out"
+        className="hover:bg-red p-2 hover:text-white rounded-full hover:-translate-y-2 transition-all duration-500 ease-out relative"
       >
         <ShoppingCartOutlined className="cursor-pointer" />
+        <div className="p-[2px] min-w-[15px] h-[15px] text-white text-xs flex items-center justify-center bg-red rounded-full absolute -top-1 -right-2">
+          {productCount}
+        </div>
       </Link>
       <Link
         href="/customer/account"
@@ -40,6 +48,4 @@ const BottomNavbar = () => {
       </Link>
     </div>
   );
-};
-
-export default BottomNavbar;
+}

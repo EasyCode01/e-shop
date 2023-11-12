@@ -100,6 +100,7 @@ export const hero = [
     tinyImage: "/images/ps5-play-station.png",
   },
 ];
+
 export const productsData = [
   {
     id: 1,
@@ -108,11 +109,14 @@ export const productsData = [
     category: "Electronics",
     categoryType: "Flash sales",
     isNew: false,
+    inStock: true,
     numberOfProducts: 25,
     price: 99.99,
     ratings: 4.5,
     discountPercentage: 20,
     newPrice: 79.99,
+    description:
+      "Experience the latest in smart home technology with the Amazon Echo. Stream music, control your smart devices, and more.",
   },
   {
     id: 2,
@@ -126,6 +130,9 @@ export const productsData = [
     ratings: 4.8,
     discountPercentage: 10,
     newPrice: 116.99,
+    description:
+      "Get ready to elevate your audio experience with the Boomblox. Crisp sound and stylish design for music lovers.",
+    inStock: false,
   },
   {
     id: 3,
@@ -139,6 +146,9 @@ export const productsData = [
     ratings: 2.7,
     discountPercentage: 15,
     newPrice: 254.99,
+    description:
+      "Capture life's moments in stunning detail with the Canon Camera. Perfect for photography enthusiasts.",
+    inStock: true,
   },
   {
     id: 4,
@@ -152,6 +162,9 @@ export const productsData = [
     ratings: 4.6,
     discountPercentage: 10,
     newPrice: 71.99,
+    description:
+      "Enhance your typing experience with this high-quality keyboard. Ideal for work and gaming.",
+    inStock: false,
   },
   {
     id: 5,
@@ -165,6 +178,9 @@ export const productsData = [
     ratings: 4.9,
     discountPercentage: 15,
     newPrice: 169.99,
+    description:
+      "Upgrade your display with the LCD Monitor. Crystal-clear visuals for work and entertainment.",
+    inStock: true,
   },
   {
     id: 6,
@@ -178,6 +194,9 @@ export const productsData = [
     ratings: 4.7,
     discountPercentage: 15,
     newPrice: 33.99,
+    description:
+      "Elevate your gaming experience with the Gamepad Red. Precision control for competitive gaming.",
+    inStock: true,
   },
   {
     id: 7,
@@ -191,6 +210,10 @@ export const productsData = [
     ratings: 3.9,
     discountPercentage: 20,
     newPrice: 39.99,
+    description: `PlayStation 5 Controller Skin High quality vinyl with air channel
+    adhesive for easy bubble free install & mess free removal pressure
+    sensitive`,
+    inStock: true,
   },
   {
     id: 8,
@@ -204,6 +227,9 @@ export const productsData = [
     ratings: 2.5,
     discountPercentage: 10,
     newPrice: 899.99,
+    description:
+      "Experience gaming like never before with the Gaming Laptop. Powerful performance for demanding games.",
+    inStock: false,
   },
   {
     id: 9,
@@ -217,6 +243,9 @@ export const productsData = [
     ratings: 5.0,
     discountPercentage: 0,
     newPrice: 499.99,
+    description:
+      "Join the next generation of gaming with the PS5 Play Station. Immersive gameplay and stunning graphics.",
+    inStock: true,
   },
   {
     id: 10,
@@ -230,6 +259,9 @@ export const productsData = [
     ratings: 4.3,
     discountPercentage: 25,
     newPrice: 37.49,
+    description:
+      "Keep your gaming rig cool with the CPU Cooler. Efficient cooling for optimal performance.",
+    inStock: false,
   },
   {
     id: 11,
@@ -243,6 +275,9 @@ export const productsData = [
     ratings: 4.8,
     discountPercentage: 10,
     newPrice: 116.99,
+    description:
+      "Add style and functionality to your home with the Book Shelf. Store and display your favorite books and decor.",
+    inStock: true,
   },
   {
     id: 12,
@@ -256,6 +291,9 @@ export const productsData = [
     ratings: 2.7,
     discountPercentage: 20,
     newPrice: 119.99,
+    description:
+      "Relax in ultimate comfort with the Comfort Chair. Stylish and ergonomic design for your living space.",
+    inStock: false,
   },
   {
     id: 13,
@@ -269,6 +307,9 @@ export const productsData = [
     ratings: 4.0,
     discountPercentage: 0,
     newPrice: 39.99,
+    description:
+      "Create a modern and chic atmosphere with Boomblox. Versatile and affordable furniture for your home.",
+    inStock: true,
   },
   {
     id: 14,
@@ -282,6 +323,9 @@ export const productsData = [
     ratings: 4.5,
     discountPercentage: 15,
     newPrice: 67.99,
+    description:
+      "Experience the magic of Curology Products. Enhance your skincare routine with high-quality products.",
+    inStock: false,
   },
   {
     id: 15,
@@ -295,6 +339,9 @@ export const productsData = [
     ratings: 2.9,
     discountPercentage: 10,
     newPrice: 269.99,
+    description:
+      "Upgrade your style with the Gucci Bag. A symbol of luxury and sophistication for fashion-forward individuals.",
+    inStock: true,
   },
   {
     id: 16,
@@ -308,6 +355,9 @@ export const productsData = [
     ratings: 4.7,
     discountPercentage: 0,
     newPrice: 119.99,
+    description:
+      "Stay stylish and comfortable with the Satin Jacket. Perfect for a casual yet trendy look.",
+    inStock: false,
   },
   {
     id: 17,
@@ -321,6 +371,9 @@ export const productsData = [
     ratings: 3.8,
     discountPercentage: 30,
     newPrice: 174.99,
+    description:
+      "Organize your fashion essentials with the Book Shelf. Chic storage solution for your wardrobe.",
+    inStock: true,
   },
   {
     id: 18,
@@ -334,13 +387,15 @@ export const productsData = [
     ratings: 4.5,
     discountPercentage: 0,
     newPrice: 39.99,
+    description:
+      "Elevate your scent game with Perfume Gucci. A captivating fragrance for the modern woman.",
+    inStock: true,
   },
-
   {
     id: 19,
     name: "Breed Dry Dog Food",
     image: "/images/dry-dog-food.png",
-    category: "Women's fashion",
+    category: "Pets",
     categoryType: "Best selling products",
     isNew: true,
     numberOfProducts: 45,
@@ -348,6 +403,9 @@ export const productsData = [
     ratings: 4.5,
     discountPercentage: 0,
     newPrice: 39.99,
+    description:
+      "Nourish your furry friend with Breed Dry Dog Food. High-quality nutrition for a healthy and happy pet.",
+    inStock: true,
   },
 ];
 

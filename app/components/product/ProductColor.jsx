@@ -1,7 +1,37 @@
-import { FavoriteBorder } from "@mui/icons-material";
-import React from "react";
+import { useCart } from "@/app/context/CartContext";
+import { CheckCircle, FavoriteBorder } from "@mui/icons-material";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
-export default function ProductColor() {
+export default function ProductColor({ product }) {
+  const { handleAddProductToCart, cartProducts } = useCart();
+  const [justAdded, setJustAdded] = useState(false);
+  const isProductInCart = cartProducts.some((p) => p.id === product.id);
+  const router = useRouter();
+
+  const addToCart = () => {
+    if (!isProductInCart) {
+      handleAddProductToCart(product);
+      setJustAdded(true);
+      setTimeout(() => setJustAdded(false), 2000);
+      toast.success("Product added to cart");
+    } else {
+      router.push("/cart");
+    }
+  };
+
+  useEffect(() => {
+    let timer;
+    if (justAdded) {
+      timer = setTimeout(() => setJustAdded(false), 2000);
+    }
+    return () => clearTimeout(timer);
+  }, [justAdded]);
+
+  let buttonStyles = {
+    backgroundColor: justAdded ? "green" : isProductInCart ? "#db4444" : "",
+  };
+
   return (
     <div className="py-5 flex flex-col gap-4">
       <div className="flex items-center">
@@ -37,7 +67,25 @@ export default function ProductColor() {
           </button>
         </div>
         <div className="flex gap-2">
-          <button className=" bg-red text-white p-2 rounded">Buy Now</button>
+          <button
+            onClick={addToCart}
+            className={`btn-primary transition-all duration-300 flex items-center justify-center ${
+              justAdded || isProductInCart ? "text-white" : ""
+            }`}
+            style={buttonStyles}
+            disabled={!product.inStock}
+          >
+            {justAdded ? (
+              <>
+                <CheckCircle style={{ fontSize: 20 }} />
+                <span style={{ marginLeft: "10px" }}>Added to cart!</span>
+              </>
+            ) : isProductInCart ? (
+              "View in Cart"
+            ) : (
+              "Add to Cart"
+            )}
+          </button>
           <button className="border border-deep-gray px-3 rounded">
             <FavoriteBorder />
           </button>

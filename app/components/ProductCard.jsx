@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   FavoriteBorderOutlined,
   RemoveRedEyeOutlined,
@@ -9,30 +9,51 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Image from "next/image";
-
+import Link from "next/link";
+import { useCart } from "../context/CartContext";
+import { useRouter } from "next/navigation";
+import AddToCartButton from "./product/AddToCartButton";
 
 export default function ProductCard({ product, type }) {
   const [hoveredProduct, setHoveredProduct] = useState(null);
+  const [isProductInCart, setIsProductInCart] = useState(false);
+  const { cartProducts } = useCart();
+
+  useEffect(() => {
+    setIsProductInCart(false);
+
+    if (cartProducts) {
+      const existingIndex = cartProducts.findIndex(
+        (item) => item.id === product.id
+      );
+
+      if (existingIndex !== -1) {
+        setIsProductInCart(true);
+      }
+    }
+  }, [cartProducts]);
 
   if (type === "Flash sales") {
     return (
       <>
         <div
           className="product-card relative shadow-lg"
-          style={{ minWidth: "200px" }}
+          style={{ minWidth: "250px" }}
           onMouseEnter={() => setHoveredProduct(product)}
           onMouseLeave={() => setHoveredProduct(null)}
         >
           <div className="image-wrapper ">
             <div className="w-3/5 h-[80px] relative flex items-center justify-center ">
-              <Image
-                src={product.image}
-                alt={product.name}
-                fill={true}
-                className="product-image object-cover"
-              />
+              <Link href={`/products/${product.id}`}>
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill={true}
+                  objectFit="contain"
+                  className="product-image"
+                />
+              </Link>
             </div>
             <small className="absolute top-2 left-2 bg-red text-white text-xs w-10 flex justify-center rounded">
               -{product.discountPercentage}%
@@ -52,9 +73,10 @@ export default function ProductCard({ product, type }) {
                   : "opacity-0 transition-opacity duration-300"
               }`}
             >
-              <button className="btn-dark mt-2 transition-all duration-300 absolute left-0 right-0 bottom-0">
-                Add to cart
-              </button>
+              <AddToCartButton
+                isProductInCart={isProductInCart}
+                product={product}
+              />
             </div>
           </div>
           <div className="p-2">
@@ -91,13 +113,16 @@ export default function ProductCard({ product, type }) {
         >
           <div className="image-wrapper">
             <div className="w-[80px] h-[80px] relative flex items-center justify-center">
-              <Image
-                src={product.image}
-                alt={product.name}
-                fill={true}
-                quality={100}
-                className="product-image object-cover"
-              />
+              <Link href={`/products/${product.id}`}>
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill={true}
+                  quality={100}
+                  objectFit="contain"
+                  className="product-image"
+                />
+              </Link>
             </div>
 
             <div className="flex flex-col gap-2 absolute top-2 right-2 transition-all duration-300">
@@ -115,9 +140,10 @@ export default function ProductCard({ product, type }) {
                   : "opacity-0 transition-opacity duration-300"
               }`}
             >
-              <button className="btn-dark mt-2 transition-all duration-300 absolute left-0 right-0 bottom-0">
-                Add to cart
-              </button>
+              <AddToCartButton
+                isProductInCart={isProductInCart}
+                product={product}
+              />
             </div>
           </div>
           <div className="p-2">
@@ -149,12 +175,15 @@ export default function ProductCard({ product, type }) {
       <div className="product-card flex flex-col gap-0  shadow-lg rounded-md overflow-hidden">
         <div className="bg-gray flex h-full  justify-center items-center relative rounded-sm">
           <div className="w-[80px] h-[70px] flex justify-center items-center relative">
-            <Image
-              className="object-cover h-20 max-h-full"
-              src={product.image}
-              alt={product.name}
-              fill={true}
-            />
+            <Link href={`/products/${product.id}`}>
+              <Image
+                className="h-20 max-h-full"
+                src={product.image}
+                alt={product.name}
+                fill={true}
+                objectFit="contain"
+              />
+            </Link>
           </div>
 
           {product.isNew ? (
@@ -173,7 +202,10 @@ export default function ProductCard({ product, type }) {
           </div>
 
           <div className="w-full absolute bottom-0 product-btn">
-            <button className="btn-dark w-full"> Add To cart</button>
+            <AddToCartButton
+              isProductInCart={isProductInCart}
+              product={product}
+            />
           </div>
         </div>
 
@@ -210,12 +242,15 @@ export default function ProductCard({ product, type }) {
       <div className="product-card flex flex-col gap-0 shadow-lg rounded-md overflow-hidden">
         <div className="bg-gray flex h-full  justify-center items-center relative rounded-sm">
           <div className="w-[80px] h-[70px] flex justify-center items-center relative">
-            <Image
-              className="object-cover h-20 max-h-full"
-              src={product.image}
-              alt={product.name}
-              fill={true}
-            />
+            <Link href={`/products/${product.id}`}>
+              <Image
+                className="h-20 max-h-full"
+                src={product.image}
+                alt={product.name}
+                fill={true}
+                objectFit="contain"
+              />
+            </Link>
           </div>
 
           {product.isNew ? (
@@ -235,10 +270,10 @@ export default function ProductCard({ product, type }) {
           </div>
 
           <div className="w-full absolute bottom-0 product-btn">
-            <button className="btn-dark w-full">
-              {" "}
-              <ShoppingCartOutlinedIcon className="text-lg" /> Add To cart
-            </button>
+            <AddToCartButton
+              isProductInCart={isProductInCart}
+              product={product}
+            />
           </div>
         </div>
 
@@ -260,12 +295,14 @@ export default function ProductCard({ product, type }) {
       <div className="product-card flex flex-col gap-0  shadow-lg rounded-md overflow-hidden">
         <div className="bg-gray flex h-full  justify-center items-center relative rounded-sm">
           <div className="w-[80px] h-[70px] flex justify-center items-center relative">
-            <Image
-              className="object-cover h-20 max-h-full"
-              src={product.image}
-              alt={product.name}
-              fill={true}
-            />
+            <Link href={`/products/${product.id}`}>
+              <Image
+                className="object-cover h-20 max-h-full"
+                src={product.image}
+                alt={product.name}
+                fill={true}
+              />
+            </Link>
           </div>
 
           {product.isNew ? (
@@ -281,10 +318,10 @@ export default function ProductCard({ product, type }) {
           </div>
 
           <div className="w-full absolute bottom-0 product-btn">
-            <button className="btn-dark w-full">
-              {" "}
-              <ShoppingCartOutlinedIcon className="text-lg" /> Add To cart
-            </button>
+            <AddToCartButton
+              isProductInCart={isProductInCart}
+              product={product}
+            />
           </div>
         </div>
 

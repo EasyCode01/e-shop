@@ -1,14 +1,19 @@
+import { FavoriteBorder, Search } from "@mui/icons-material";
 import {
   FavoriteBorder,
   Search,
   ShoppingCartOutlined,
 } from "@mui/icons-material";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
+
 import Link from "next/link";
 import MenuButton from "./MenuButton";
 import NavLinks from "./NavLinks";
 import SideMenu from "./SideMenu";
+
+import ShoppingCart from "./nav/ShoppingCart";
 import AccountDropdown from "./accoutpanel/AccountDropdown";
+
 
 export default function Navbar() {
   return (
@@ -55,6 +60,7 @@ export default function Navbar() {
                 4
               </div>
             </Link>
+            <ShoppingCart />
 
             <Link href="/cart">
               <ShoppingCartOutlined className="cursor-pointer" />
