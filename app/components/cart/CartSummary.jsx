@@ -1,17 +1,17 @@
 "use client";
 
-import { useCartContext } from "@/app/context/CartContext";
+import { useCart } from "@/app/context/CartContext";
 import Link from "next/link";
 import React from "react";
 
 export default function CartSummary() {
-  const [{ items }] = useCartContext();
+  const { cartProducts } = useCart();
 
-  const subtotal = items.reduce((total, item) => {
-    return total + item.price * item.quantity;
+  const subtotal = cartProducts.reduce((acc, product) => {
+    return acc + product.price * product.quantity;
   }, 0);
 
-  const shippingCost = 0;
+  const shippingCost = subtotal > 50 ? 0 : 5;
 
   const total = subtotal + shippingCost;
 
@@ -22,7 +22,7 @@ export default function CartSummary() {
         <ul className="flex flex-col gap-2">
           <li className="flex justify-between border-b border-deep-gray pb-2">
             <p>Subtotal: </p>
-            <p>${subtotal}</p>
+            <p>${subtotal.toFixed(2)}</p>
           </li>
           <li className="flex justify-between border-b border-deep-gray pb-2">
             <p>Shipping: </p>
@@ -30,7 +30,7 @@ export default function CartSummary() {
           </li>
           <li className="flex justify-between">
             <p>Total: </p>
-            <p>{total}</p>
+            <p>${total.toFixed(2)}</p>
           </li>
         </ul>
         <Link href="/checkout">

@@ -3,40 +3,33 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { HighlightOffOutlined } from "@mui/icons-material";
-import { useCartContext } from "@/app/context/CartContext";
+import { useCart } from "@/app/context/CartContext";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 export default function CartItem() {
-  const [{ items }, dispatch] = useCartContext();
-
+  const { cartProducts, updateCart } = useCart();
   const [localCart, setLocalCart] = useState([]);
 
   useEffect(() => {
-    setLocalCart(items);
-  }, [items]);
+    setLocalCart(cartProducts);
+  }, [cartProducts]);
 
-  const handleQuantityChange = (id, newQuantity) => {
+  const handleRemoveItemFromLocalCart = (productId) => {
+    setLocalCart(localCart.filter((item) => item.id !== productId));
+  };
+
+  const handleQuantityChange = (productId, newQuantity) => {
     setLocalCart(
       localCart.map((item) =>
-        item.id === id ? { ...item, quantity: newQuantity } : item
+        item.id === productId ? { ...item, quantity: newQuantity } : item
       )
     );
   };
 
-  const handleUpdateCart = () => {
-    localCart.forEach((item) => {
-      dispatch({
-        type: "UPDATE_QUANTITY",
-        payload: { id: item.id, quantity: item.quantity },
-      });
-    });
-  };
-
-  const handleRemoveItem = (id) => {
-    dispatch({
-      type: "REMOVE_ITEM",
-      payload: { id },
-    });
+  const updateGlobalCart = () => {
+    updateCart(localCart);
+    toast.success("Cart updated successfully!");
   };
 
   return (
@@ -59,7 +52,7 @@ export default function CartItem() {
 
             <div className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 ">
               <button
-                onClick={() => handleRemoveItem(item.id)}
+                onClick={() => handleRemoveItemFromLocalCart(item.id)}
                 className="text-red"
               >
                 <HighlightOffOutlined />
@@ -72,8 +65,7 @@ export default function CartItem() {
           <div className="flex items-center justify-center text-center">
             <button
               onClick={() =>
-                item.quantity > 1 &&
-                handleQuantityChange(item.id, item.quantity - 1)
+                handleQuantityChange(item.id, Math.max(1, item.quantity - 1))
               }
               className="px-2 bg-red text-white"
             >
@@ -100,7 +92,7 @@ export default function CartItem() {
           </button>
         </Link>
         <button
-          onClick={handleUpdateCart}
+          onClick={updateGlobalCart}
           className="border border-deep-gray px-4 py-2 rounded-md hover:bg-red hover:text-white transition duration-300 ease-in-out"
         >
           Update Cart

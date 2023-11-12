@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   FavoriteBorderOutlined,
   RemoveRedEyeOutlined,
@@ -9,19 +9,30 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Image from "next/image";
 import Link from "next/link";
-import { useCartContext } from "../context/CartContext";
+import { useCart } from "../context/CartContext";
+import { useRouter } from "next/navigation";
+import AddToCartButton from "./product/AddToCartButton";
 
 export default function ProductCard({ product, type }) {
   const [hoveredProduct, setHoveredProduct] = useState(null);
+  const [isProductInCart, setIsProductInCart] = useState(false);
+  const { cartProducts } = useCart();
 
-  const [{ items }, dispatch] = useCartContext();
+  useEffect(() => {
+    setIsProductInCart(false);
 
-  const handleAddToCart = () => {
-    dispatch({ type: "ADD_ITEM", payload: product });
-  };
+    if (cartProducts) {
+      const existingIndex = cartProducts.findIndex(
+        (item) => item.id === product.id
+      );
+
+      if (existingIndex !== -1) {
+        setIsProductInCart(true);
+      }
+    }
+  }, [cartProducts]);
 
   if (type === "Flash sales") {
     return (
@@ -62,12 +73,10 @@ export default function ProductCard({ product, type }) {
                   : "opacity-0 transition-opacity duration-300"
               }`}
             >
-              <button
-                onClick={handleAddToCart}
-                className="btn-dark mt-2 transition-all duration-300 absolute left-0 right-0 bottom-0"
-              >
-                Add to cart
-              </button>
+              <AddToCartButton
+                isProductInCart={isProductInCart}
+                product={product}
+              />
             </div>
           </div>
           <div className="p-2">
@@ -131,12 +140,10 @@ export default function ProductCard({ product, type }) {
                   : "opacity-0 transition-opacity duration-300"
               }`}
             >
-              <button
-                onClick={handleAddToCart}
-                className="btn-dark mt-2 transition-all duration-300 absolute left-0 right-0 bottom-0"
-              >
-                Add to cart
-              </button>
+              <AddToCartButton
+                isProductInCart={isProductInCart}
+                product={product}
+              />
             </div>
           </div>
           <div className="p-2">
@@ -195,9 +202,10 @@ export default function ProductCard({ product, type }) {
           </div>
 
           <div className="w-full absolute bottom-0 product-btn">
-            <button onClick={handleAddToCart} className="btn-dark w-full">
-              Add To cart
-            </button>
+            <AddToCartButton
+              isProductInCart={isProductInCart}
+              product={product}
+            />
           </div>
         </div>
 
@@ -262,9 +270,10 @@ export default function ProductCard({ product, type }) {
           </div>
 
           <div className="w-full absolute bottom-0 product-btn">
-            <button onClick={handleAddToCart} className="btn-dark w-full">
-              <ShoppingCartOutlinedIcon className="text-lg" /> Add To cart
-            </button>
+            <AddToCartButton
+              isProductInCart={isProductInCart}
+              product={product}
+            />
           </div>
         </div>
 
@@ -309,10 +318,10 @@ export default function ProductCard({ product, type }) {
           </div>
 
           <div className="w-full absolute bottom-0 product-btn">
-            <button onClick={handleAddToCart} className="btn-dark w-full">
-              {" "}
-              <ShoppingCartOutlinedIcon className="text-lg" /> Add To cart
-            </button>
+            <AddToCartButton
+              isProductInCart={isProductInCart}
+              product={product}
+            />
           </div>
         </div>
 

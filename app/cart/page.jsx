@@ -17,7 +17,7 @@ export default function Page({ handleApplyCoupon }) {
         <div className="coupon-form mt-4">
           <CouponForm onApplyCoupon={handleApplyCoupon} />
         </div>
-        <div className="cart-summary mt-4">
+        <div className="mt-4">
           <CartSummary />
         </div>
       </div>
