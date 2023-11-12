@@ -16,7 +16,7 @@ export default function Navbar() {
             <Link href="/shop">ShopNow</Link>
           </small>
           <select className="hidden lg:block bg-transparent border-none">
-            <option value="snglish">English</option>
+            <option value="english">English</option>
             <option value="spanish">Spanish</option>
           </select>
         </div>
