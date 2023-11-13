@@ -12,7 +12,6 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "../context/CartContext";
-import { useRouter } from "next/navigation";
 import AddToCartButton from "./product/AddToCartButton";
 
 export default function ProductCard({ product, type }) {
@@ -45,15 +44,13 @@ export default function ProductCard({ product, type }) {
         >
           <div className="image-wrapper ">
             <div className="w-3/5 h-[80px] relative flex items-center justify-center ">
-              <Link href={`/products/${product.id}`}>
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill={true}
-                  objectFit="contain"
-                  className="product-image"
-                />
-              </Link>
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill={true}
+                objectFit="contain"
+                className="product-image"
+              />
             </div>
             <small className="absolute top-2 left-2 bg-red text-white text-xs w-10 flex justify-center rounded">
               -{product.discountPercentage}%
@@ -62,9 +59,11 @@ export default function ProductCard({ product, type }) {
               <small className="bg-white flex items-center justify-center rounded-full p-1 cursor-pointer ">
                 <FavoriteBorderOutlined className="text-gray-500 text-sm" />
               </small>
-              <small className="bg-white flex items-center justify-center rounded-full p-1 cursor-pointer ">
-                <RemoveRedEyeOutlined className="text-gray-500 text-sm" />
-              </small>
+              <Link href={`/products/${product.id}`}>
+                <small className="bg-white flex items-center justify-center rounded-full p-1 cursor-pointer ">
+                  <RemoveRedEyeOutlined className="text-gray-500 text-sm" />
+                </small>
+              </Link>
             </div>
             <div
               className={`${
@@ -129,9 +128,11 @@ export default function ProductCard({ product, type }) {
               <small className="bg-white flex items-center justify-center rounded-full p-1 cursor-pointer ">
                 <FavoriteBorderOutlined className="text-gray-500 text-sm" />
               </small>
-              <small className="bg-white flex items-center justify-center rounded-full p-1 cursor-pointer ">
-                <RemoveRedEyeOutlined className="text-gray-500 text-sm" />
-              </small>
+              <Link href={`/products/${product.id}`}>
+                <small className="bg-white flex items-center justify-center rounded-full p-1 cursor-pointer ">
+                  <RemoveRedEyeOutlined className="text-gray-500 text-sm" />
+                </small>
+              </Link>{" "}
             </div>
             <div
               className={`${
@@ -175,15 +176,13 @@ export default function ProductCard({ product, type }) {
       <div className="product-card flex flex-col gap-0  shadow-lg rounded-md overflow-hidden">
         <div className="bg-gray flex h-full  justify-center items-center relative rounded-sm">
           <div className="w-[80px] h-[70px] flex justify-center items-center relative">
-            <Link href={`/products/${product.id}`}>
-              <Image
-                className="h-20 max-h-full"
-                src={product.image}
-                alt={product.name}
-                fill={true}
-                objectFit="contain"
-              />
-            </Link>
+            <Image
+              className="h-20 max-h-full"
+              src={product.image}
+              alt={product.name}
+              fill={true}
+              objectFit="contain"
+            />
           </div>
 
           {product.isNew ? (
@@ -196,9 +195,11 @@ export default function ProductCard({ product, type }) {
             <div className="w-[20px] h-[20px] cursor-pointer flex justify-center items-center bg-white rounded-full">
               <FavoriteBorderOutlinedIcon className="text-sm" />
             </div>
-            <div className="w-[20px] h-[20px] cursor-pointer flex justify-center items-center bg-white rounded-full">
-              <VisibilityOutlinedIcon className="text-sm" />
-            </div>
+            <Link href={`/products/${product.id}`}>
+              <div className="w-[20px] h-[20px] cursor-pointer flex justify-center items-center bg-white rounded-full">
+                <VisibilityOutlinedIcon className="text-sm" />
+              </div>
+            </Link>
           </div>
 
           <div className="w-full absolute bottom-0 product-btn">
@@ -242,15 +243,13 @@ export default function ProductCard({ product, type }) {
       <div className="product-card flex flex-col gap-0 shadow-lg rounded-md overflow-hidden">
         <div className="bg-gray flex h-full  justify-center items-center relative rounded-sm">
           <div className="w-[80px] h-[70px] flex justify-center items-center relative">
-            <Link href={`/products/${product.id}`}>
-              <Image
-                className="h-20 max-h-full"
-                src={product.image}
-                alt={product.name}
-                fill={true}
-                objectFit="contain"
-              />
-            </Link>
+            <Image
+              className="h-20 max-h-full"
+              src={product.image}
+              alt={product.name}
+              fill={true}
+              objectFit="contain"
+            />
           </div>
 
           {product.isNew ? (
@@ -312,9 +311,11 @@ export default function ProductCard({ product, type }) {
           ) : null}
 
           <div className="absolute top-3 right-3 flex flex-col gap-2">
-            <div className="w-[20px] h-[20px] cursor-pointer flex justify-center items-center bg-white rounded-full">
-              <VisibilityOutlinedIcon className="text-sm" />
-            </div>
+            <Link href={`/products/${product.id}`}>
+              <div className="w-[20px] h-[20px] cursor-pointer flex justify-center items-center bg-white rounded-full">
+                <VisibilityOutlinedIcon className="text-sm" />
+              </div>
+            </Link>
           </div>
 
           <div className="w-full absolute bottom-0 product-btn">
