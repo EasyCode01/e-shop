@@ -1,18 +1,23 @@
-import { productsData } from "@/app/constant/data";
+"use client";
+import { useCart } from "@/app/context/CartContext";
 import Image from "next/image";
 import React from "react";
 
-const OrderSummary = ({ orderItems }) => {
-  // Calculate subtotal
-  //   const subtotal = orderItems.reduce(
-  //     (acc, item) => acc + item.price * item.quantity,
-  //     0
-  //   );
+const OrderSummary = () => {
+  const { cartProducts } = useCart();
+
+  const subtotal = cartProducts.reduce((acc, product) => {
+    return acc + product.price * product.quantity;
+  }, 0);
+
+  const shippingCost = subtotal > 50 ? 0 : 5;
+
+  const total = subtotal + shippingCost;
 
   return (
     <div className="flex flex-col gap-4 shadow-lg w:full md:w-2/5">
       <ul className="px-8 ">
-        {productsData.slice(0, 3).map((item, index) => (
+        {cartProducts.map((item, index) => (
           <li
             key={index}
             className="flex justify-between items-center gap-5 mb-4 p-4 shadow-md bg-white"
@@ -39,15 +44,15 @@ const OrderSummary = ({ orderItems }) => {
       <ul className="flex flex-col gap-5 px-8">
         <li className="flex justify-between border-b border-deep-gray pb-2">
           <p>Subtotal: </p>
-          <p>$1650</p>
+          <p>${subtotal.toFixed(2)}</p>
         </li>
         <li className="flex justify-between border-b border-deep-gray pb-2">
           <p>Shipping: </p>
-          <p>Free</p>
+          <p>{shippingCost > 0 ? `$${shippingCost.toFixed(2)}` : "Free"}</p>
         </li>
         <li className="flex justify-between">
           <p>Total: </p>
-          <p>$1650</p>
+          <p>${total.toFixed(2)}</p>
         </li>
       </ul>
 
