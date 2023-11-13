@@ -14,7 +14,6 @@ export default function ProductColor({ product }) {
       handleAddProductToCart(product);
       setJustAdded(true);
       setTimeout(() => setJustAdded(false), 2000);
-      toast.success("Product added to cart");
     } else {
       router.push("/cart");
     }
@@ -73,7 +72,6 @@ export default function ProductColor({ product }) {
               justAdded || isProductInCart ? "text-white" : ""
             }`}
             style={buttonStyles}
-            disabled={!product.inStock}
           >
             {justAdded ? (
               <>

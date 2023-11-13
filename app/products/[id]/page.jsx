@@ -7,7 +7,6 @@ import StarRating from "@/app/components/product/StarRating";
 import ProductColor from "@/app/components/product/ProductColor";
 import Delivery from "@/app/components/product/Delivery";
 import ProductCard from "@/app/components/ProductCard";
-import { productsData } from "@/app/constant/data";
 
 export default function ProductPage({ params }) {
   const { products } = useAppContext();
