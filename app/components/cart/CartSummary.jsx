@@ -5,7 +5,9 @@ import Link from "next/link";
 import React from "react";
 
 export default function CartSummary() {
-  const { cartProducts } = useCart();
+  const {
+    state: { cartProducts },
+  } = useCart();
 
   const subtotal = cartProducts.reduce((acc, product) => {
     return acc + product.price * product.quantity;

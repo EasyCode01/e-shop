@@ -4,15 +4,20 @@ import { useCart } from "@/app/context/CartContext";
 import { CheckCircle } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 export default function AddToCartButton({ isProductInCart, product }) {
   const router = useRouter();
-  const { handleAddProductToCart } = useCart();
+  const { state, dispatch } = useCart();
   const [justAdded, setJustAdded] = useState(false);
 
   const handleAddClick = () => {
     if (!isProductInCart) {
-      handleAddProductToCart(product);
+      dispatch({
+        type: "ADD_ITEM",
+        payload: product,
+      });
+      toast.success("Cart cleared successfully!");
       setJustAdded(true);
       setTimeout(() => setJustAdded(false), 2000);
     } else {

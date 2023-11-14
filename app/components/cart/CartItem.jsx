@@ -8,33 +8,34 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 
 export default function CartItem() {
-  const { cartProducts, updateCart } = useCart();
-  const [localCart, setLocalCart] = useState([]);
+  const {
+    state: { cartProducts },
+    dispatch,
+  } = useCart();
 
-  useEffect(() => {
-    setLocalCart(cartProducts);
-  }, [cartProducts]);
-
-  const handleRemoveItemFromLocalCart = (productId) => {
-    setLocalCart(localCart.filter((item) => item.id !== productId));
+  const handleRemoveItem = (productId) => {
+    dispatch({
+      type: "REMOVE_ITEM",
+      payload: productId,
+    });
   };
 
   const handleQuantityChange = (productId, newQuantity) => {
-    setLocalCart(
-      localCart.map((item) =>
-        item.id === productId ? { ...item, quantity: newQuantity } : item
-      )
-    );
+    dispatch({
+      type: "UPDATE_ITEM_QUANTITY",
+      payload: { id: productId, quantity: newQuantity },
+    });
   };
 
-  const updateGlobalCart = () => {
-    updateCart(localCart);
-    toast.success("Cart updated successfully!");
+  const clearCart = () => {
+    dispatch({
+      type: "CLEAR_CART",
+    });
+    toast.success("Cart cleared successfully!");
   };
-
   return (
     <div className="">
-      {localCart.map((item) => (
+      {cartProducts.map((item) => (
         <div
           className={`cart-item grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-center mb-4 p-8 shadow-md bg-white relative group cursor-pointer`}
           key={item.id}
@@ -54,7 +55,7 @@ export default function CartItem() {
 
             <div className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 ">
               <button
-                onClick={() => handleRemoveItemFromLocalCart(item.id)}
+                onClick={() => handleRemoveItem(item.id)}
                 className="text-red"
               >
                 <HighlightOffOutlined />
@@ -94,10 +95,10 @@ export default function CartItem() {
           </button>
         </Link>
         <button
-          onClick={updateGlobalCart}
+          onClick={clearCart}
           className="border border-deep-gray px-4 py-2 rounded-md hover:bg-red hover:text-white transition duration-300 ease-in-out"
         >
-          Update Cart
+          Clear Cart
         </button>
       </div>
     </div>

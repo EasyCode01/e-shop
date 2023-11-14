@@ -9,7 +9,11 @@ import Link from "next/link";
 import { useCart } from "../context/CartContext";
 
 export default function BottomNavbar() {
-  const { productCount } = useCart();
+  const {
+    state: { cartProducts },
+  } = useCart();
+
+  const productCount = cartProducts.length;
 
   return (
     <div className="fixed bottom-0 left-0 w-full flex justify-around items-center p-3 z-10 bg-white shadow-3xl md:hidden">
