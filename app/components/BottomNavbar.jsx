@@ -36,7 +36,7 @@ export default function BottomNavbar() {
         className="hover:bg-red p-2 hover:text-white rounded-full hover:-translate-y-2 transition-all duration-500 ease-out relative"
       >
         <ShoppingCartOutlined className="cursor-pointer" />
-        <div className="p-[2px] min-w-[15px] h-[15px] text-white text-xs flex items-center justify-center bg-red rounded-full absolute -top-1 -right-2">
+        <div className=" min-w-[15px] h-[15px] text-white text-xs flex items-center justify-center bg-red rounded-full absolute -top-0 -right-0">
           {productCount}
         </div>
       </Link>

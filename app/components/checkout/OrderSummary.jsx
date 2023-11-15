@@ -4,11 +4,16 @@ import Image from "next/image";
 import React from "react";
 
 const OrderSummary = () => {
-  const { cartProducts } = useCart();
+  const {
+    state: { cartProducts },
+    dispatch,
+  } = useCart();
 
-  const subtotal = cartProducts.reduce((acc, product) => {
-    return acc + product.price * product.quantity;
-  }, 0);
+  const subtotal = cartProducts
+    ? cartProducts.reduce((acc, product) => {
+        return acc + product.price * product.quantity;
+      }, 0)
+    : 0;
 
   const shippingCost = subtotal > 50 ? 0 : 5;
 
