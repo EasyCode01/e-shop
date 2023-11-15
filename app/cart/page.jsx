@@ -8,7 +8,9 @@ import { useCart } from "../context/CartContext";
 import Link from "next/link";
 
 export default function Page({ handleApplyCoupon }) {
-  const { cartProducts } = useCart();
+  const {
+    state: { cartProducts },
+  } = useCart();
 
   return (
     <div className="container mx-auto py-8">

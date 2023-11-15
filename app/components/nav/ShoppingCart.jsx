@@ -4,7 +4,11 @@ import { ShoppingCartOutlined } from "@mui/icons-material";
 import Link from "next/link";
 
 export default function ShoppingCart() {
-  const { productCount } = useCart();
+  const {
+    state: { cartProducts },
+  } = useCart();
+
+  const productCount = cartProducts.length;
 
   return (
     <Link href="/cart" className="relative">

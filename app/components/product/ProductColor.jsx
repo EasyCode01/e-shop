@@ -2,16 +2,24 @@ import { useCart } from "@/app/context/CartContext";
 import { CheckCircle, FavoriteBorder } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 export default function ProductColor({ product }) {
-  const { handleAddProductToCart, cartProducts } = useCart();
+  const {
+    state: { cartProducts },
+    dispatch,
+  } = useCart();
   const [justAdded, setJustAdded] = useState(false);
   const isProductInCart = cartProducts.some((p) => p.id === product.id);
   const router = useRouter();
 
   const addToCart = () => {
     if (!isProductInCart) {
-      handleAddProductToCart(product);
+      dispatch({
+        type: "ADD_ITEM",
+        payload: product,
+      });
+      toast.success("Added to cart successfully!");
       setJustAdded(true);
       setTimeout(() => setJustAdded(false), 2000);
     } else {

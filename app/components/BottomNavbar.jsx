@@ -10,7 +10,11 @@ import Link from "next/link";
 import { useCart } from "../context/CartContext";
 
 export default function BottomNavbar() {
-  const { productCount } = useCart();
+  const {
+    state: { cartProducts },
+  } = useCart();
+
+  const productCount = cartProducts.length;
 
   return (
     <div className="fixed bottom-0 left-0 w-full flex justify-around items-center p-3 z-10 bg-white shadow-3xl md:hidden">
@@ -36,7 +40,7 @@ export default function BottomNavbar() {
         className="hover:bg-red p-2 hover:text-white rounded-full hover:-translate-y-2 transition-all duration-500 ease-out relative"
       >
         <ShoppingCartOutlined className="cursor-pointer" />
-        <div className="p-[2px] min-w-[15px] h-[15px] text-white text-xs flex items-center justify-center bg-red rounded-full absolute -top-1 -right-2">
+        <div className=" min-w-[15px] h-[15px] text-white text-xs flex items-center justify-center bg-red rounded-full absolute -top-0 -right-0">
           {productCount}
         </div>
       </Link>

@@ -17,7 +17,10 @@ import AddToCartButton from "./product/AddToCartButton";
 export default function ProductCard({ product, type }) {
   const [hoveredProduct, setHoveredProduct] = useState(null);
   const [isProductInCart, setIsProductInCart] = useState(false);
-  const { cartProducts } = useCart();
+  const {
+    state: { cartProducts },
+    dispatch,
+  } = useCart();
 
   useEffect(() => {
     setIsProductInCart(false);
@@ -112,16 +115,14 @@ export default function ProductCard({ product, type }) {
         >
           <div className="image-wrapper">
             <div className="w-[80px] h-[80px] relative flex items-center justify-center">
-              <Link href={`/products/${product.id}`}>
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill={true}
-                  quality={100}
-                  objectFit="contain"
-                  className="product-image"
-                />
-              </Link>
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill={true}
+                quality={100}
+                objectFit="contain"
+                className="product-image"
+              />
             </div>
 
             <div className="flex flex-col gap-2 absolute top-2 right-2 transition-all duration-300">
@@ -294,14 +295,12 @@ export default function ProductCard({ product, type }) {
       <div className="product-card flex flex-col gap-0  shadow-lg rounded-md overflow-hidden">
         <div className="bg-gray flex h-full  justify-center items-center relative rounded-sm">
           <div className="w-[80px] h-[70px] flex justify-center items-center relative">
-            <Link href={`/products/${product.id}`}>
-              <Image
-                className="object-cover h-20 max-h-full"
-                src={product.image}
-                alt={product.name}
-                fill={true}
-              />
-            </Link>
+            <Image
+              className="object-cover h-20 max-h-full"
+              src={product.image}
+              alt={product.name}
+              fill={true}
+            />
           </div>
 
           {product.isNew ? (
