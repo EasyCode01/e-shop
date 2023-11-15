@@ -22,8 +22,6 @@ export default function ProductCard({ product, type }) {
     dispatch,
   } = useCart();
 
-  console.log(cartProducts);
-
   useEffect(() => {
     setIsProductInCart(false);
 

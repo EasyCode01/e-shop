@@ -5,7 +5,6 @@ import React, { createContext, useReducer, useContext, useEffect } from "react";
 const cartActionTypes = {
   ADD_ITEM: "ADD_ITEM",
   REMOVE_ITEM: "REMOVE_ITEM",
-  UPDATE_CART: "UPDATE_CART",
   CLEAR_CART: "CLEAR_CART",
   UPDATE_ITEM_QUANTITY: "UPDATE_ITEM_QUANTITY",
 };
