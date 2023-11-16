@@ -6,7 +6,7 @@ import FastDelivery from "./sections/home/FastDelivery";
 import MiniBanner from "./sections/home/MiniBanner";
 import NewArrival from "./sections/home/NewArrival";
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="">
       <div className="container">
