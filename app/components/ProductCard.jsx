@@ -17,24 +17,27 @@ import AddToCartButton from "./product/AddToCartButton";
 export default function ProductCard({ product, type }) {
   const [hoveredProduct, setHoveredProduct] = useState(null);
   const [isProductInCart, setIsProductInCart] = useState(false);
-  const {
-    state: { cartProducts },
-    dispatch,
-  } = useCart();
+  // const {
+  //   state: { cartProducts },
+  //   dispatch,
+  // } = useCart();
 
-  useEffect(() => {
-    setIsProductInCart(false);
+  // useEffect(() => {
+  //   setIsProductInCart(false);
 
-    if (cartProducts) {
-      const existingIndex = cartProducts.findIndex(
-        (item) => item.id === product.id
-      );
+  //   if (cartProducts) {
+  //     const existingIndex = cartProducts.findIndex(
+  //       (item) => item.id === product.id
+  //     );
 
-      if (existingIndex !== -1) {
-        setIsProductInCart(true);
-      }
-    }
-  }, [cartProducts]);
+  //     if (existingIndex !== -1) {
+  //       setIsProductInCart(true);
+  //     }
+  //   }
+  // }, [cartProducts]);
+
+  // console.log(product.image);
+  console.log("Product in ProductCard:", product);
 
   if (type === "Flash sales") {
     return (
@@ -48,7 +51,7 @@ export default function ProductCard({ product, type }) {
           <div className="image-wrapper ">
             <div className="w-3/5 h-[80px] relative flex items-center justify-center ">
               <Image
-                src={product.image}
+                src={product.images}
                 alt={product.name}
                 fill={true}
                 objectFit="contain"
@@ -116,7 +119,7 @@ export default function ProductCard({ product, type }) {
           <div className="image-wrapper">
             <div className="w-[80px] h-[80px] relative flex items-center justify-center">
               <Image
-                src={product.image}
+                src={product.images}
                 alt={product.name}
                 fill={true}
                 quality={100}
@@ -179,7 +182,7 @@ export default function ProductCard({ product, type }) {
           <div className="w-[80px] h-[70px] flex justify-center items-center relative">
             <Image
               className="h-20 max-h-full"
-              src={product.image}
+              src={product.images}
               alt={product.name}
               fill={true}
               objectFit="contain"

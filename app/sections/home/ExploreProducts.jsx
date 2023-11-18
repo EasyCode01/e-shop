@@ -1,28 +1,10 @@
-"use client";
-import React, { useEffect, useState } from "react";
 import SectionTitle from "../../components/SectionTitle";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import ProductCard from "../../components/ProductCard";
-import { productsData } from "../../constant/data";
 
-export default function ExploreProducts() {
-  const [products, setProducts] = useState(productsData);
+import ShuffledProducts from "@/app/components/product/ShuffledProducts";
 
-  // Function to shuffle the array
-  const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-  };
-
-  useEffect(() => {
-    const shuffledProducts = [...productsData];
-    shuffleArray(shuffledProducts);
-    setProducts(shuffledProducts);
-  }, []);
-
+export default function ExploreProducts({ products }) {
   return (
     <section className="padding-y">
       <div className="container">
@@ -40,16 +22,10 @@ export default function ExploreProducts() {
 
         <div className="mt-10">
           <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-x-7 gap-y-10">
-            {products?.length &&
-              products
-                .slice(0, 8)
-                .map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    product={product}
-                    type="Explore products"
-                  />
-                ))}
+            <ShuffledProducts
+              initialProducts={products}
+              type="Explore products"
+            />
           </div>
         </div>
 
