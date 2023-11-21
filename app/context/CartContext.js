@@ -12,6 +12,7 @@ const cartActionTypes = {
 
 const initialState = {
   cartProducts: [],
+  wishlistProducts: [],
   cartTotalQty: 0,
 };
 
@@ -19,7 +20,7 @@ const cartReducer = (state, action) => {
   switch (action.type) {
     case cartActionTypes.ADD_ITEM:
       const itemIndex = state.cartProducts.findIndex(
-        (item) => item.id === action.payload.id
+        (item) => item._id === action.payload._id
       );
       const newCartProducts = [...state.cartProducts];
 
@@ -39,11 +40,11 @@ const cartReducer = (state, action) => {
       return {
         ...state,
         cartProducts: state.cartProducts.filter(
-          (item) => item.id !== action.payload
+          (item) => item._id !== action.payload
         ),
         cartTotalQty:
           state.cartTotalQty -
-          state.cartProducts.find((item) => item.id === action.payload)
+          state.cartProducts.find((item) => item._id === action.payload)
             .quantity,
       };
 
@@ -59,7 +60,7 @@ const cartReducer = (state, action) => {
 
     case cartActionTypes.UPDATE_ITEM_QUANTITY:
       const updatedCartProducts = state.cartProducts.map((item) =>
-        item.id === action.payload.id
+        item._id === action.payload._id
           ? { ...item, quantity: action.payload.quantity }
           : item
       );
@@ -96,7 +97,9 @@ export const CartContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (state.cartProducts.length > 0) {
+    if (state.cartProducts.length === 0) {
+      localStorage.removeItem("cart");
+    } else {
       localStorage.setItem("cart", JSON.stringify(state.cartProducts));
     }
   }, [state.cartProducts]);

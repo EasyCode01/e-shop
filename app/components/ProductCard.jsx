@@ -6,13 +6,12 @@ import {
 } from "@mui/icons-material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
-import StarBorderIcon from "@mui/icons-material/StarBorder";
-import StarIcon from "@mui/icons-material/Star";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Image from "next/image";
 import Link from "next/link";
-import { useCart } from "../context/CartContext";
 import AddToCartButton from "./product/AddToCartButton";
+import { StarRating } from "./product/StarRating";
+import { useCart } from "../context/CartContext";
 
 export default function ProductCard({ product, type }) {
   const [hoveredProduct, setHoveredProduct] = useState(null);
@@ -27,7 +26,7 @@ export default function ProductCard({ product, type }) {
 
     if (cartProducts) {
       const existingIndex = cartProducts.findIndex(
-        (item) => item.id === product.id
+        (item) => item._id === product._id
       );
 
       if (existingIndex !== -1) {
@@ -35,6 +34,8 @@ export default function ProductCard({ product, type }) {
       }
     }
   }, [cartProducts]);
+
+  // console.log("Product in ProductCard:", product);
 
   if (type === "Flash sales") {
     return (
@@ -48,7 +49,7 @@ export default function ProductCard({ product, type }) {
           <div className="image-wrapper ">
             <div className="w-3/5 h-[80px] relative flex items-center justify-center ">
               <Image
-                src={product.image}
+                src={product.images}
                 alt={product.name}
                 fill={true}
                 objectFit="contain"
@@ -62,7 +63,12 @@ export default function ProductCard({ product, type }) {
               <small className="bg-white flex items-center justify-center rounded-full p-1 cursor-pointer ">
                 <FavoriteBorderOutlined className="text-gray-500 text-sm" />
               </small>
-              <Link href={`/products/${product.id}`}>
+              <Link
+                href={{
+                  pathname: `/products/${product._id}`,
+                  query: { name: product.name },
+                }}
+              >
                 <small className="bg-white flex items-center justify-center rounded-full p-1 cursor-pointer ">
                   <RemoveRedEyeOutlined className="text-gray-500 text-sm" />
                 </small>
@@ -75,10 +81,12 @@ export default function ProductCard({ product, type }) {
                   : "opacity-0 transition-opacity duration-300"
               }`}
             >
-              <AddToCartButton
-                isProductInCart={isProductInCart}
-                product={product}
-              />
+              <div className="w-full absolute bottom-0 left-0 product-btn">
+                <AddToCartButton
+                  isProductInCart={isProductInCart}
+                  product={product}
+                />
+              </div>
             </div>
           </div>
           <div className="p-2">
@@ -88,16 +96,9 @@ export default function ProductCard({ product, type }) {
               <span className="ml-2 line-through">${product.price}</span>
             </small>
             <div>
-              {[...Array(5)].map((_, index) =>
-                product.ratings > index ? (
-                  <StarIcon key={index} className="text-orange text-sm" />
-                ) : (
-                  <StarBorderIcon
-                    key={index}
-                    className="text-deep-gray text-sm"
-                  />
-                )
-              )}
+              <div>
+                <StarRating rating={product.ratings} />
+              </div>
             </div>
           </div>
         </div>
@@ -116,7 +117,7 @@ export default function ProductCard({ product, type }) {
           <div className="image-wrapper">
             <div className="w-[80px] h-[80px] relative flex items-center justify-center">
               <Image
-                src={product.image}
+                src={product.images}
                 alt={product.name}
                 fill={true}
                 quality={100}
@@ -129,11 +130,16 @@ export default function ProductCard({ product, type }) {
               <small className="bg-white flex items-center justify-center rounded-full p-1 cursor-pointer ">
                 <FavoriteBorderOutlined className="text-gray-500 text-sm" />
               </small>
-              <Link href={`/products/${product.id}`}>
+              <Link
+                href={{
+                  pathname: `/products/${product._id}`,
+                  query: { name: product.name },
+                }}
+              >
                 <small className="bg-white flex items-center justify-center rounded-full p-1 cursor-pointer ">
                   <RemoveRedEyeOutlined className="text-gray-500 text-sm" />
                 </small>
-              </Link>{" "}
+              </Link>
             </div>
             <div
               className={`${
@@ -142,10 +148,12 @@ export default function ProductCard({ product, type }) {
                   : "opacity-0 transition-opacity duration-300"
               }`}
             >
-              <AddToCartButton
-                isProductInCart={isProductInCart}
-                product={product}
-              />
+              <div className="w-full absolute bottom-0 left-0 product-btn">
+                <AddToCartButton
+                  isProductInCart={isProductInCart}
+                  product={product}
+                />
+              </div>
             </div>
           </div>
           <div className="p-2">
@@ -155,16 +163,9 @@ export default function ProductCard({ product, type }) {
               <span className="ml-2 line-through">${product.price}</span>
             </small>
             <div>
-              {[...Array(5)].map((_, index) =>
-                product.ratings > index ? (
-                  <StarIcon key={index} className="text-orange text-sm" />
-                ) : (
-                  <StarBorderIcon
-                    key={index}
-                    className="text-deep-gray text-sm"
-                  />
-                )
-              )}
+              <div>
+                <StarRating rating={product.ratings} />
+              </div>
             </div>
           </div>
         </div>
@@ -179,7 +180,7 @@ export default function ProductCard({ product, type }) {
           <div className="w-[80px] h-[70px] flex justify-center items-center relative">
             <Image
               className="h-20 max-h-full"
-              src={product.image}
+              src={product.images}
               alt={product.name}
               fill={true}
               objectFit="contain"
@@ -196,7 +197,12 @@ export default function ProductCard({ product, type }) {
             <div className="w-[20px] h-[20px] cursor-pointer flex justify-center items-center bg-white rounded-full">
               <FavoriteBorderOutlinedIcon className="text-sm" />
             </div>
-            <Link href={`/products/${product.id}`}>
+            <Link
+              href={{
+                pathname: `/products/${product._id}`,
+                query: { name: product.name },
+              }}
+            >
               <div className="w-[20px] h-[20px] cursor-pointer flex justify-center items-center bg-white rounded-full">
                 <VisibilityOutlinedIcon className="text-sm" />
               </div>
@@ -216,16 +222,9 @@ export default function ProductCard({ product, type }) {
           <div className="flex gap-2 flex-wrap items-center">
             <p className="text-red text-sm">${product.price}</p>
             <div>
-              {[...Array(5)].map((_, index) =>
-                product.ratings > index ? (
-                  <StarIcon key={index} className="text-orange text-sm" />
-                ) : (
-                  <StarBorderIcon
-                    key={index}
-                    className="text-deep-gray text-sm"
-                  />
-                )
-              )}
+              <div>
+                <StarRating rating={product.ratings} />
+              </div>
             </div>
             <p>{product.numberOfProducts}</p>
           </div>
@@ -310,7 +309,12 @@ export default function ProductCard({ product, type }) {
           ) : null}
 
           <div className="absolute top-3 right-3 flex flex-col gap-2">
-            <Link href={`/products/${product.id}`}>
+            <Link
+              href={{
+                pathname: `/products/${product._id}`,
+                query: { name: product.name },
+              }}
+            >
               <div className="w-[20px] h-[20px] cursor-pointer flex justify-center items-center bg-white rounded-full">
                 <VisibilityOutlinedIcon className="text-sm" />
               </div>
@@ -330,16 +334,9 @@ export default function ProductCard({ product, type }) {
           <div className="flex gap-2 flex-wrap items-center">
             <p className="text-red text-sm">${product.price}</p>
             <div>
-              {[...Array(5)].map((_, index) =>
-                product.ratings > index ? (
-                  <StarIcon key={index} className="text-orange text-sm" />
-                ) : (
-                  <StarBorderIcon
-                    key={index}
-                    className="text-deep-gray text-sm"
-                  />
-                )
-              )}
+              <div>
+                <StarRating rating={product.ratings} />
+              </div>
             </div>
             <p>{product.numberOfProducts}</p>
           </div>

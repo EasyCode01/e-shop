@@ -1,41 +1,8 @@
-"use client";
-
-import Carousel from "@/app/components/Carousel";
-import ProductCard from "@/app/components/ProductCard";
-import { useAppContext } from "@/app/context/AppContext";
+import FlashSalesClient from "@/app/components/product/FlashSalesClient";
 import Timer from "@/app/utils/Timer";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-export default function FlashSales() {
-  const [flashSaleProducts, setFlashSalesProducts] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const { products } = useAppContext();
-
-  useEffect(() => {
-    const filteredProducts = products.filter(
-      (product) => product.categoryType === "Flash sales"
-    );
-    setFlashSalesProducts(filteredProducts);
-  }, [products]);
-
-  const nextCard = () => {
-    if (currentIndex + 6 < flashSaleProducts.length) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-
-  const prevCard = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
-
-  const displayProducts = flashSaleProducts.slice(
-    currentIndex,
-    currentIndex + 6
-  );
-
+export default function FlashSales({ products }) {
   return (
     <div className="pt-12 ">
       <div className="">
@@ -49,21 +16,10 @@ export default function FlashSales() {
           <h1 className="md:text-2xl text-xl font-bold">Flash Sales</h1>
           <Timer />
         </div>
-        <Carousel prevCard={prevCard} nextCard={nextCard} />
       </div>
 
       <div className="pb-10">
-        <div className="overflow-x-hidden space-x-4 slider my-5">
-          {flashSaleProducts
-            ?.slice(currentIndex, currentIndex + 6)
-            .map((product, index) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                type="Flash sales"
-              />
-            ))}
-        </div>
+        <FlashSalesClient products={products} />
 
         <div className="text-center">
           <Link href="/products" className="btn-primary">

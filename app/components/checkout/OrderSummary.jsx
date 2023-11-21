@@ -19,17 +19,19 @@ const OrderSummary = () => {
 
   const total = subtotal + shippingCost;
 
+  console.log(cartProducts);
+
   return (
     <div className="flex flex-col gap-4 shadow-lg w:full md:w-2/5">
       <ul className="px-8 ">
         {cartProducts.map((item, index) => (
           <li
-            key={index}
+            key={item._id}
             className="flex justify-between items-center gap-5 mb-4 p-4 shadow-md bg-white"
           >
             <div className="flex items-center gap-2">
               <Image
-                src={item.image}
+                src={item.images}
                 alt={item.name}
                 width={25}
                 height={25}
@@ -37,11 +39,10 @@ const OrderSummary = () => {
                 objectFit="contain"
               />
               <span className="text-xs font-medium">{item.name}</span>
+              <span className="text-xs font-medium">x{item.quantity}</span>
             </div>
 
-            <span className="text-xs font-medium">
-              ${item.price.toFixed(2)}
-            </span>
+            <span className="text-xs font-medium">${item.price}</span>
           </li>
         ))}
       </ul>
