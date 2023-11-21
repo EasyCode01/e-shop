@@ -12,6 +12,7 @@ const cartActionTypes = {
 
 const initialState = {
   cartProducts: [],
+  wishlistProducts: [],
   cartTotalQty: 0,
 };
 
