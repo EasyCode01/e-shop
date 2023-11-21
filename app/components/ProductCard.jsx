@@ -26,7 +26,7 @@ export default function ProductCard({ product, type }) {
 
     if (cartProducts) {
       const existingIndex = cartProducts.findIndex(
-        (item) => item.id === product.id
+        (item) => item._id === product._id
       );
 
       if (existingIndex !== -1) {
@@ -35,8 +35,7 @@ export default function ProductCard({ product, type }) {
     }
   }, [cartProducts]);
 
-  console.log(product.image);
-  console.log("Product in ProductCard:", product);
+  // console.log("Product in ProductCard:", product);
 
   if (type === "Flash sales") {
     return (

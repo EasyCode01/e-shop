@@ -23,9 +23,13 @@ export default function CartItem() {
   const handleQuantityChange = (productId, newQuantity) => {
     dispatch({
       type: "UPDATE_ITEM_QUANTITY",
-      payload: { id: productId, quantity: newQuantity },
+      payload: { _id: productId, quantity: newQuantity },
     });
   };
+
+  const totalPrice = cartProducts.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
 
   const clearCart = () => {
     dispatch({
@@ -38,12 +42,12 @@ export default function CartItem() {
       {cartProducts.map((item) => (
         <div
           className={`cart-item grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-center mb-4 p-8 shadow-md bg-white relative group cursor-pointer`}
-          key={item.id}
+          key={item._id}
         >
           <div className="flex items-center space-x-4 col-span-1">
-            <Link href={`/products/${item.id}`}>
+            <Link href={`/products/${item._id}`}>
               <Image
-                src={item.image}
+                src={item.images}
                 alt={item.name}
                 width={35}
                 height={35}
@@ -55,7 +59,7 @@ export default function CartItem() {
 
             <div className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 ">
               <button
-                onClick={() => handleRemoveItem(item.id)}
+                onClick={() => handleRemoveItem(item._id)}
                 className="text-red"
               >
                 <HighlightOffOutlined />
@@ -68,7 +72,7 @@ export default function CartItem() {
           <div className="flex items-center justify-center text-center">
             <button
               onClick={() =>
-                handleQuantityChange(item.id, Math.max(1, item.quantity - 1))
+                handleQuantityChange(item._id, Math.max(1, item.quantity - 1))
               }
               className="px-2 bg-red text-white"
             >
@@ -76,16 +80,14 @@ export default function CartItem() {
             </button>
             <span className="px-2">{item.quantity}</span>
             <button
-              onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+              onClick={() => handleQuantityChange(item._id, item.quantity + 1)}
               className="px-2 bg-red text-white"
             >
               +
             </button>
           </div>
 
-          <div className=" text-center">
-            ${(item.price * item.quantity).toFixed(2)}
-          </div>
+          <div className=" text-center">${totalPrice}</div>
         </div>
       ))}
       <div className="flex justify-between items-center">
