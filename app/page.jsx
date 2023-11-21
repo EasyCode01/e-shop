@@ -8,18 +8,19 @@ import NewArrival from "./sections/home/NewArrival";
 import { fetchProducts } from "./lib/data";
 
 export default async function Home() {
-  const data = await fetchProducts();
+  const products = await fetchProducts();
 
   return (
     <main className="">
       <div className="container">
         <Hero />
-        <FlashSales products={data} />
-        <BestSelling products={data} />
+
+        <FlashSales products={products} />
+        <BestSelling products={products} />
       </div>
 
       <MiniBanner />
-      <ExploreProducts products={data} />
+      <ExploreProducts products={products} />
       <NewArrival />
       <FastDelivery />
     </main>

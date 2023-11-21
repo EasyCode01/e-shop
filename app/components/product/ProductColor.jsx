@@ -1,3 +1,4 @@
+"use client";
 import { useCart } from "@/app/context/CartContext";
 import { CheckCircle, FavoriteBorder } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
